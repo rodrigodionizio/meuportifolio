@@ -388,8 +388,4 @@ Desenvolvido com ❤️ por Rodrigo Dionizio
 **Design:** Clean & Professional  
 **Hospedagem:** GitHub Pages
 
----
-
-**🚀 Boa sorte com seu portfólio!**
-
 _Última atualização: Janeiro 2025_

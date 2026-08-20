@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<title>Currículo — Rodrigo Dionízio Quirino</title>
+<link rel="stylesheet" href="fontes.css">
+<style>
+  :root{
+    --tinta:#14191b;
+    --tinta-2:#3d4649;
+    --tinta-3:#6b7679;
+    --marca:#0B4F5A;
+    --marca-clara:#EAF1F2;
+    --destaque:#A8501F;
+    --regua:#d5dcdc;
+    --regua-fina:#e8eded;
+  }
+
+  @page{ size:A4; margin:13mm 14mm 12mm; }
+
+  *{ box-sizing:border-box; }
+
+  html,body{ margin:0; padding:0; }
+
+  body{
+    font-family:'CVSans','Segoe UI',Arial,sans-serif;
+    font-size:9.4pt;
+    line-height:1.39;
+    color:var(--tinta);
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ---------- cabeçalho ---------- */
+  .topo{ border-bottom:2.2pt solid var(--marca); padding-bottom:7pt; margin-bottom:11pt; }
+  h1{
+    font-size:19pt; font-weight:700; letter-spacing:.035em;
+    text-transform:uppercase; margin:0 0 3pt; line-height:1.1; color:var(--marca);
+  }
+  .cargo{
+    font-size:9.6pt; font-weight:700; color:var(--tinta-2);
+    margin:0 0 6pt; letter-spacing:.005em;
+  }
+  .cargo .sep{ color:var(--destaque); font-weight:400; padding:0 2pt; }
+  .contatos{
+    font-family:'CVMono',monospace; font-size:7.7pt; color:var(--tinta-2);
+    line-height:1.65; margin:0;
+  }
+  .contatos a{ color:var(--tinta-2); text-decoration:none; }
+  .contatos .rot{ color:var(--tinta-3); }
+
+  /* ---------- seções ---------- */
+  h2{
+    font-size:8.6pt; font-weight:700; text-transform:uppercase; letter-spacing:.13em;
+    color:var(--marca); margin:0 0 6pt; padding-bottom:2.5pt;
+    border-bottom:.6pt solid var(--regua);
+    break-after:avoid; page-break-after:avoid;
+  }
+  section{ margin-bottom:9.5pt; }
+
+  p{ margin:0 0 5pt; text-align:justify; }
+  p:last-child{ margin-bottom:0; }
+  strong{ font-weight:700; }
+
+  .resumo p{ color:var(--tinta-2); }
+  .resumo strong{ color:var(--tinta); }
+
+  /* ---------- competências ---------- */
+  .comp{ margin-bottom:4.5pt; text-align:justify; color:var(--tinta-2); }
+  .comp:last-child{ margin-bottom:0; }
+  .comp b{ color:var(--marca); font-weight:700; }
+
+  /* ---------- experiência ---------- */
+  .cargo-bloco{ margin-bottom:7pt; }
+  .cargo-bloco:last-child{ margin-bottom:0; }
+  .cargo-titulo{
+    font-size:10pt; font-weight:700; margin:0 0 1pt; color:var(--tinta);
+    break-after:avoid; page-break-after:avoid;
+  }
+  .cargo-org{
+    font-family:'CVMono',monospace; font-size:7.7pt; color:var(--tinta-3);
+    margin:0 0 3.5pt; break-after:avoid; page-break-after:avoid;
+  }
+  .cargo-org b{ color:var(--destaque); font-weight:400; }
+  ul{ margin:0; padding:0 0 0 11pt; list-style:none; }
+  li{ position:relative; margin-bottom:2.4pt; color:var(--tinta-2); text-align:justify;
+       break-inside:avoid; page-break-inside:avoid; }
+  li:last-child{ margin-bottom:0; }
+  li::before{
+    content:""; position:absolute; left:-9pt; top:4.6pt;
+    width:3pt; height:3pt; border-radius:50%; background:var(--marca);
+  }
+  li b{ color:var(--tinta); }
+
+  /* ---------- tabela competência × evidência ---------- */
+  table{ width:100%; border-collapse:collapse; font-size:8.5pt; }
+  thead{ display:table-header-group; }
+  th{
+    text-align:left; font-size:7.4pt; font-weight:700; text-transform:uppercase;
+    letter-spacing:.09em; color:var(--tinta-3); background:var(--marca-clara);
+    padding:3.5pt 6pt; border-bottom:.6pt solid var(--regua);
+  }
+  td{
+    padding:3.8pt 6pt; vertical-align:top; border-bottom:.5pt solid var(--regua-fina);
+    color:var(--tinta-2);
+  }
+  td:first-child{ width:37%; font-weight:700; color:var(--tinta); }
+  tr{ break-inside:avoid; page-break-inside:avoid; }
+  td b{ color:var(--tinta); }
+
+  /* ---------- projetos ---------- */
+  .proj{ margin-bottom:3.4pt; color:var(--tinta-2); text-align:justify; }
+  .proj:last-child{ margin-bottom:0; }
+  .proj b{ color:var(--tinta); }
+  .proj .ano{ font-family:'CVMono',monospace; font-size:7.6pt; color:var(--destaque); }
+  .proj .marca{
+    display:inline-block; font-family:'CVMono',monospace; font-size:6.8pt;
+    letter-spacing:.06em; text-transform:uppercase; color:#1F6B4B;
+    border:.5pt solid #1F6B4B; border-radius:2pt; padding:0 3pt; margin-left:3pt;
+    vertical-align:1pt;
+  }
+
+  /* ---------- formação ---------- */
+  .form-item{ margin-bottom:3.6pt; }
+  .form-item:last-child{ margin-bottom:0; }
+  .form-titulo{ font-weight:700; }
+  .form-meta{ font-family:'CVMono',monospace; font-size:7.6pt; color:var(--tinta-3); }
+
+  .duas{ column-count:2; column-gap:16pt; }
+  .duas .form-item{ break-inside:avoid; page-break-inside:avoid; }
+
+  .rodape{
+    margin-top:7pt; padding-top:4pt; border-top:.6pt solid var(--regua);
+    font-family:'CVMono',monospace; font-size:7pt; color:var(--tinta-3);
+    text-align:center;
+  }
+</style>
+</head>
+<body>
+
+<header class="topo">
+  <h1>Rodrigo Dionízio Quirino</h1>
+  <p class="cargo">
+    Analista de Infraestrutura de TI <span class="sep">·</span> Redes e Telecomunicações
+    <span class="sep">·</span> Banco de Dados <span class="sep">·</span> Servidores
+    <span class="sep">·</span> Suporte ao Usuário
+  </p>
+  <p class="contatos">
+    Itabirinha/MG &nbsp;·&nbsp; (33) 98820-3127 &nbsp;·&nbsp; rodrigo.dionizio@gmail.com
+    &nbsp;·&nbsp; <span class="rot">lattes</span>&nbsp;5942682200028507<br>
+    <span class="rot">portfólio</span>&nbsp;rodrigodionizio.github.io/meuportifolio &nbsp;·&nbsp;
+    <span class="rot">linkedin</span>&nbsp;in/rodrigodionizio &nbsp;·&nbsp;
+    <span class="rot">github</span>&nbsp;/rodrigodionizio
+  </p>
+</header>
+
+<section class="resumo">
+  <h2>Resumo profissional</h2>
+  <p>
+    Profissional sênior de Tecnologia da Informação com <strong>23 anos de atuação ininterrupta</strong>, responsável
+    pela liderança técnica do departamento de TI da Prefeitura Municipal de Itabirinha/MG desde 2003. Atuação de
+    espectro completo sobre o ciclo de vida da infraestrutura: suporte técnico presencial e remoto a usuários de todas
+    as secretarias, administração de servidores Windows Server e Active Directory, projeto e operação de redes
+    LAN/WLAN e VPN multi-site em equipamentos MikroTik, cabeamento estruturado certificado e administração de bancos de
+    dados relacionais com desenvolvimento e otimização de consultas e relatórios institucionais.
+  </p>
+  <p>
+    Experiência consolidada em ambiente de serviço público, com sensibilidade a <strong>continuidade de serviços
+    essenciais</strong>, sigilo da informação, prestação de contas a órgãos de controle e atendimento a usuários de
+    perfis técnicos heterogêneos. Em paralelo à infraestrutura, desenvolve e mantém <strong>aplicações web próprias em
+    produção</strong>, em Next.js, TypeScript e bancos relacionais — o que permite projetar sistemas conhecendo, do
+    servidor ao suporte, tudo o que sustenta a operação.
+  </p>
+  <p>
+    Complementarmente, docência em curso técnico de Informática pelo Governo de Minas Gerais em dois períodos (2013–2015 e 2023–2025), o que
+    sustenta capacidade comprovada de <strong>documentar procedimentos, produzir base de conhecimento e capacitar
+    equipes e usuários finais</strong>. Bacharel em Sistemas de Informação e pós-graduando em Engenharia de Redes.
+  </p>
+</section>
+
+<section>
+  <h2>Competências técnicas</h2>
+  <p class="comp"><b>Suporte e atendimento ao usuário:</b> suporte presencial e remoto de 1º e 2º nível; diagnóstico e
+    solução de incidentes em estações de trabalho, notebooks, impressoras e periféricos; instalação e configuração de
+    softwares corporativos; gestão de contas, perfis e permissões de acesso; orientação e capacitação de usuários;
+    controle de ativos e inventário de parque.</p>
+  <p class="comp"><b>Redes e telecomunicações:</b> TCP/IP, endereçamento e sub-redes, VLANs, roteamento, DHCP, DNS, NAT,
+    QoS; RouterOS/MikroTik (RouterBoard, load balance, firewall, hotspot); VPN site-to-site e acesso remoto; redes sem
+    fio corporativas e segmentadas; links de Internet e balanceamento; cabeamento estruturado e certificação de rede
+    (Furukawa FCA).</p>
+  <p class="comp"><b>Servidores e infraestrutura:</b> Windows Server (2008 R2 em diante), Active Directory, DHCP,
+    serviços de arquivo, impressão e diretório; instalação, atualização e manutenção de servidores; datacenter e rack
+    (energia, organização física, CFTV, telefonia); rotinas de backup e restauração; continuidade e disponibilidade de
+    serviços críticos.</p>
+  <p class="comp"><b>Banco de dados:</b> administração de instâncias SQL Server e PostgreSQL; modelagem e criação de
+    esquemas; escrita, análise e otimização de consultas SQL complexas; construção de relatórios gerenciais e
+    institucionais; políticas de cópia de segurança e recuperação; controle de acesso e permissões.</p>
+  <p class="comp"><b>Sistemas corporativos e produtividade:</b> ERP Alterdata (RH, Tributos, Contabilidade); linha
+    TOTVS/RM (Fluxus, Folha, Agili) com gerador de relatórios e sentenças SQL; Microsoft 365 e pacote Office; planilhas
+    eletrônicas avançadas.</p>
+  <p class="comp"><b>Desenvolvimento e automação:</b> JavaScript/TypeScript, Node.js, React e Next.js; SQL; Supabase;
+    Git/GitHub; publicação e operação de aplicações web; automação de rotinas administrativas e de manutenção.</p>
+</section>
+
+<section>
+  <h2>Experiência profissional</h2>
+
+  <div class="cargo-bloco">
+    <p class="cargo-titulo">Chefe do Departamento de Tecnologia da Informação</p>
+    <p class="cargo-org">Prefeitura Municipal de Itabirinha/MG <b>·</b> servidor público efetivo (concursado) <b>·</b> 2003 – atual</p>
+    <ul>
+      <li>Liderança técnica do departamento de TI do município, respondendo pela infraestrutura tecnológica integral:
+        servidores, rede, estações de trabalho, sistemas corporativos e atendimento a usuários de todas as secretarias.</li>
+      <li><b>Ponto único de contato</b> para suporte técnico presencial e remoto: recebimento, triagem, classificação,
+        priorização, tratamento e encerramento de incidentes e requisições de serviço, com escalonamento a fornecedores
+        quando fora do escopo interno.</li>
+      <li>Administração de servidores Microsoft Windows Server e serviços de diretório (Active Directory, DHCP, arquivos
+        e impressão), incluindo instalação, atualização, aplicação de patches e manutenção preventiva e corretiva.</li>
+      <li>Gerenciamento das redes locais e sem fio de todas as unidades municipais: endereçamento IP, segmentação,
+        controle e balanceamento do acesso à Internet, firewall e VPN em equipamentos MikroTik.</li>
+      <li>Administração de bancos de dados <b>SQL Server e PostgreSQL</b> dos sistemas institucionais, com
+        desenvolvimento de consultas complexas, relatórios gerenciais e rotinas de extração de dados para prestação de
+        contas.</li>
+      <li>Desenvolvimento e manutenção de soluções web institucionais e integração entre sistemas corporativos do
+        município.</li>
+      <li>Capacitação contínua de servidores públicos no uso de sistemas, ferramentas digitais e boas práticas de
+        segurança da informação, com elaboração de orientações e procedimentos operacionais.</li>
+      <li>Especificação técnica, acompanhamento de contratos e avaliação de serviços de conectividade, equipamentos e
+        soluções de TI adquiridos pelo município.</li>
+    </ul>
+  </div>
+
+  <div class="cargo-bloco">
+    <p class="cargo-titulo">Consultor de Infraestrutura e Suporte de TI <span style="font-weight:400">(prestação de serviços)</span></p>
+    <p class="cargo-org">SERTEC Contabilidade Ltda., Laticínios Vila Nova, ITALAB, BIONALISE e outros <b>·</b> 2003 – 2024</p>
+    <ul>
+      <li>Administração de servidores Windows Server 2008 R2, redes sem fio corporativas e RouterBoard MikroTik RB450G
+        configurada como load balance e servidor DHCP.</li>
+      <li>Implantação de VPN, firewall, segmentação de rede e políticas de segurança perimetral em ambientes
+        <b>multi-site</b>.</li>
+      <li>Suporte funcional e técnico ao ERP Alterdata (RH, Tributos e Contabilidade), com atendimento direto a usuários
+        finais e resolução de incidentes de sistema.</li>
+      <li>Projeto e execução de <b>datacenter completo</b> (rack 24U, cabeamento estruturado, rede, CFTV e telefonia) e
+        de infraestrutura de Wi-Fi corporativo com redes segmentadas.</li>
+      <li>Assessoria técnica em decisões de investimento e evolução tecnológica dos clientes.</li>
+    </ul>
+  </div>
+
+  <div class="cargo-bloco">
+    <p class="cargo-titulo">Professor de Curso Técnico em Informática</p>
+    <p class="cargo-org">Governo do Estado de Minas Gerais (EEGLA / EENSA) <b>·</b> 2013 – 2015 e 2023 – 2025</p>
+    <ul>
+      <li>Docência em <b>Banco de Dados</b>, Tópicos Avançados em Banco de Dados, Programação Web, Programação
+        Orientada a Objetos, Hardware, Algoritmos e Aplicativos de Informática.</li>
+      <li>Gestão de laboratório de informática, elaboração de material didático, documentação de procedimentos e
+        formação técnica de novos profissionais de TI.</li>
+    </ul>
+  </div>
+
+  <div class="cargo-bloco">
+    <p class="cargo-titulo">Supervisor de Informática</p>
+    <p class="cargo-org">Prefeitura Municipal de São José do Divino/MG <b>·</b> 02/2018 – 12/2020</p>
+    <ul>
+      <li>Administração integral da infraestrutura de TI municipal: servidores, rede, estações e suporte aos usuários
+        das secretarias.</li>
+    </ul>
+  </div>
+
+  <div class="cargo-bloco">
+    <p class="cargo-titulo">Analista de Suporte</p>
+    <p class="cargo-org">TOTVS S.A. — Unidade Leste de Minas <b>·</b> 2008</p>
+    <ul>
+      <li>Suporte técnico a clientes da linha RM (Fluxus, Folha e Agili), com atendimento remoto, diagnóstico de
+        incidentes e orientação a usuários.</li>
+      <li>Configuração de parâmetros, elaboração de <b>sentenças SQL</b> e desenvolvimento de relatórios customizados
+        no Gerador de Relatórios RM.</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <h2>Competências e onde se comprovam</h2>
+  <table>
+    <thead>
+      <tr><th>Competência</th><th>Experiência correspondente, comprovável por declaração institucional</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Suporte presencial e remoto; triagem, tratamento e solução de incidentes</td>
+        <td>Atendimento contínuo aos usuários de todas as secretarias da Prefeitura de Itabirinha desde 2009, em regime de <b>ponto único de contato</b></td>
+      </tr>
+      <tr>
+        <td>Estações, notebooks, impressoras, periféricos, contas de usuário e softwares corporativos</td>
+        <td>Manutenção preventiva e corretiva do parque municipal; provisionamento de contas e permissões em Active Directory</td>
+      </tr>
+      <tr>
+        <td>Redes locais e sem fio, VPN, enlaces e links de Internet</td>
+        <td>Redes LAN/WLAN da Prefeitura, VPN multi-site (ITALAB), Wi-Fi corporativo segmentado (BIONALISE), load balance e DHCP em RouterBoard MikroTik</td>
+      </tr>
+      <tr>
+        <td>Switches, roteadores, firewalls e controladoras wireless</td>
+        <td>Roteadores e firewalls MikroTik em administração pública e clientes privados desde 2010</td>
+      </tr>
+      <tr>
+        <td>Endereçamento IP, sub-redes, VLANs, roteamento, DNS, DHCP, Wi-Fi e acesso remoto</td>
+        <td>Projeto e operação de redes segmentadas, servidor DHCP, controle de acesso à Internet e acesso remoto</td>
+      </tr>
+      <tr>
+        <td>Administração, monitoramento e manutenção de servidores Windows</td>
+        <td>Windows Server 2008 R2 em diante, Active Directory, DHCP, serviços de arquivo e impressão</td>
+      </tr>
+      <tr>
+        <td>Instalação e administração de SGBDs; ajuste de consultas e índices</td>
+        <td>Administração de bases <b>SQL Server e PostgreSQL</b>, escrita e otimização de consultas complexas e relatórios institucionais</td>
+      </tr>
+      <tr>
+        <td>Backup, restauração e continuidade dos serviços</td>
+        <td>Rotinas de cópia de segurança de servidores e de configurações de ativos de rede</td>
+      </tr>
+      <tr>
+        <td>Infraestrutura física, cabeamento estruturado e ativos de datacenter</td>
+        <td>Datacenter completo (rack 24U, cabeamento, CFTV, telefonia) nos Laticínios Vila Nova; <b>certificação Furukawa FCA</b></td>
+      </tr>
+      <tr>
+        <td>Treinamento e capacitação de usuários em recursos de TIC</td>
+        <td>Capacitação contínua de servidores públicos e docência em curso técnico de Informática pelo Governo de MG (2013–2015 e 2023–2025)</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>Projetos técnicos de destaque</h2>
+  <p class="proj"><b>Sacristia Digital</b> <span class="ano">2024 – atual</span><span class="marca">em produção</span> —
+    plataforma SaaS multi-tenant em Next.js, React e TypeScript, com autenticação, controle de acesso por perfil, base
+    de dados relacional e painel administrativo. Domínio próprio e clientes ativos.</p>
+  <p class="proj"><b>OSCRM — HelpDesk e CRM de ordens de serviço</b> <span class="ano">2025 – atual</span><span class="marca">em produção</span> —
+    sistema interno de chamados de TI: abertura, triagem por prioridade, fila com SLA, atribuição a técnicos, histórico
+    e relatórios de tempo médio e volume de atendimento.</p>
+  <p class="proj"><b>Calendário Litúrgico Paroquial</b> <span class="ano">2024 – atual</span><span class="marca">em produção</span> —
+    aplicação web instalável e funcional offline, com backend Supabase (PostgreSQL e Row Level Security), captura
+    automatizada diária de dados por Edge Function em Deno e scripts Python de carga anual.</p>
+  <p class="proj"><b>ITALAB</b> <span class="ano">2020</span> — infraestrutura MikroTik multi-site com VPN entre
+    unidades e acesso remoto controlado, para laboratório de análises clínicas.</p>
+  <p class="proj"><b>BIONALISE</b> <span class="ano">2020</span> — implantação de Wi-Fi corporativo, firewall, racks e
+    redes segmentadas por perfil de usuário.</p>
+  <p class="proj"><b>Laticínios Vila Nova</b> <span class="ano">2016</span> — datacenter completo: rack 24U, cabeamento
+    estruturado certificado, rede, CFTV e telefonia.</p>
+  <p class="proj"><b>Sistemas web institucionais e portais</b> — WordPress e desenvolvimento próprio, para órgãos e
+    entidades locais.</p>
+</section>
+
+<section>
+  <h2>Formação acadêmica</h2>
+  <div class="form-item">
+    <span class="form-titulo">Pós-graduação em Engenharia de Redes</span><br>
+    <span class="form-meta">em andamento</span>
+  </div>
+  <div class="form-item">
+    <span class="form-titulo">Bacharelado em Sistemas de Informação</span><br>
+    <span class="form-meta">Universidade Vale do Rio Doce (UNIVALE) · concluído em 2008</span>
+  </div>
+  <div class="form-item">
+    <span class="form-titulo">Técnico em Informática com ênfase em Internet</span><br>
+    <span class="form-meta">Escola Técnica da UNIVALE (ETEIT) · concluído em 2001</span>
+  </div>
+</section>
+
+<section>
+  <h2>Certificações e cursos complementares</h2>
+  <div class="duas">
+    <div class="form-item">
+      <span class="form-titulo">Cabeamento Estruturado — Furukawa (FCA)</span><br>
+      <span class="form-meta">120 horas · 2019–2020</span>
+    </div>
+    <div class="form-item">
+      <span class="form-titulo">Acessibilidade na Web / Web Standards</span><br>
+      <span class="form-meta">iLearn Educação e Informática · 16 horas · 2007</span>
+    </div>
+    <div class="form-item">
+      <span class="form-titulo">WordCamp Belo Horizonte — WordPress</span><br>
+      <span class="form-meta">2014 e 2015</span>
+    </div>
+    <div class="form-item">
+      <span class="form-titulo">Design para Joomla</span><br>
+      <span class="form-meta">36 horas · 2007</span>
+    </div>
+    <div class="form-item">
+      <span class="form-titulo">Dreamweaver Standards</span><br>
+      <span class="form-meta">Rio de Janeiro · 2007</span>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h2>Idiomas</h2>
+  <p class="comp"><b>Inglês</b> — compreensão e leitura razoáveis, com domínio de documentação técnica.
+    &nbsp;&nbsp;<b>Espanhol</b> — compreensão razoável.</p>
+</section>
+
+<p class="rodape">Rodrigo Dionízio Quirino · rodrigo.dionizio@gmail.com · (33) 98820-3127 · rodrigodionizio.github.io/meuportifolio</p>
+
+</body>
+</html>

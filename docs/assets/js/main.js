@@ -23,7 +23,7 @@
     SUBJECT_PREFIX: "[Portfólio]"
   };
 
-  var CAREER_START_YEAR = 2002;
+  var CAREER_START_YEAR = 2003;
 
   /* ------------------------------------------------------------------------
      Textos por idioma — a página em /en usa lang="en".

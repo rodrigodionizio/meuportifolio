@@ -26,6 +26,48 @@
   var CAREER_START_YEAR = 2002;
 
   /* ------------------------------------------------------------------------
+     Textos por idioma — a página em /en usa lang="en".
+     ---------------------------------------------------------------------- */
+  var STRINGS = {
+    "pt-BR": {
+      themeTo: function (t) { return "Mudar para o tema " + (t === "dark" ? "claro" : "escuro"); },
+      errName: "Informe seu nome completo.",
+      errEmail: "Informe um e-mail válido.",
+      errMessage: "Escreva ao menos 10 caracteres.",
+      errForm: "Confira os campos destacados e tente novamente.",
+      sending: "Enviando…",
+      submit: "Enviar mensagem",
+      sent: "<strong>Mensagem enviada.</strong><br>Recebi seu contato e respondo em até 1 dia útil.",
+      fallbackTitle: "<strong>Sua mensagem está pronta — falta só enviar.</strong><br>",
+      fallbackBody: "O envio automático ainda não está ativo neste site. Escolha um canal abaixo: os seus dados já vão preenchidos.",
+      byEmail: "Enviar por e-mail",
+      byWhats: "Enviar pelo WhatsApp",
+      fName: "Nome", fEmail: "E-mail", fPhone: "Telefone", fSubject: "Assunto",
+      defaultSubject: "Contato pelo portfólio",
+      contactFrom: "Contato de "
+    },
+    en: {
+      themeTo: function (t) { return "Switch to " + (t === "dark" ? "light" : "dark") + " theme"; },
+      errName: "Please enter your full name.",
+      errEmail: "Please enter a valid email address.",
+      errMessage: "Please write at least 10 characters.",
+      errForm: "Please check the highlighted fields and try again.",
+      sending: "Sending…",
+      submit: "Send message",
+      sent: "<strong>Message sent.</strong><br>I have your message and will reply within one business day.",
+      fallbackTitle: "<strong>Your message is ready — it just needs sending.</strong><br>",
+      fallbackBody: "Automatic delivery is not enabled on this site yet. Pick a channel below: your details are already filled in.",
+      byEmail: "Send by email",
+      byWhats: "Send via WhatsApp",
+      fName: "Name", fEmail: "Email", fPhone: "Phone", fSubject: "Subject",
+      defaultSubject: "Message from the portfolio",
+      contactFrom: "Message from "
+    }
+  };
+
+  var T = STRINGS[document.documentElement.lang] || STRINGS["pt-BR"];
+
+  /* ------------------------------------------------------------------------
      Utilidades
      ---------------------------------------------------------------------- */
   function $(sel, scope) { return (scope || document).querySelector(sel); }
@@ -61,9 +103,9 @@
     }
 
     function label() {
-      var next = currentTheme() === "dark" ? "claro" : "escuro";
-      toggle.setAttribute("aria-label", "Mudar para o tema " + next);
-      toggle.setAttribute("title", "Mudar para o tema " + next);
+      var text = T.themeTo(currentTheme());
+      toggle.setAttribute("aria-label", text);
+      toggle.setAttribute("title", text);
     }
 
     label();
@@ -192,9 +234,9 @@
 
     function validate(data, fields) {
       var ok = true;
-      ok = setError(fields.name, data.name.length >= 3 ? "" : "Informe seu nome completo.") && ok;
-      ok = setError(fields.email, /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email) ? "" : "Informe um e-mail válido.") && ok;
-      ok = setError(fields.message, data.message.length >= 10 ? "" : "Escreva ao menos 10 caracteres.") && ok;
+      ok = setError(fields.name, data.name.length >= 3 ? "" : T.errName) && ok;
+      ok = setError(fields.email, /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email) ? "" : T.errEmail) && ok;
+      ok = setError(fields.message, data.message.length >= 10 ? "" : T.errMessage) && ok;
       return ok;
     }
 
@@ -207,10 +249,10 @@
 
     function plainText(data) {
       return [
-        "Nome: " + data.name,
-        "E-mail: " + data.email,
-        data.phone ? "Telefone: " + data.phone : "",
-        "Assunto: " + (data.subject || "Contato pelo portfólio"),
+        T.fName + ": " + data.name,
+        T.fEmail + ": " + data.email,
+        data.phone ? T.fPhone + ": " + data.phone : "",
+        T.fSubject + ": " + (data.subject || T.defaultSubject),
         "",
         data.message
       ].filter(Boolean).join("\n");
@@ -218,19 +260,17 @@
 
     /** Sem chave configurada: entrega a mensagem por e-mail ou WhatsApp. */
     function fallback(data) {
-      var subject = CONTACT.SUBJECT_PREFIX + " " + (data.subject || "Contato de " + data.name);
+      var subject = CONTACT.SUBJECT_PREFIX + " " + (data.subject || T.contactFrom + data.name);
       var mailto = "mailto:" + CONTACT.EMAIL +
         "?subject=" + encodeURIComponent(subject) +
         "&body=" + encodeURIComponent(plainText(data));
       var whats = "https://wa.me/" + CONTACT.WHATSAPP + "?text=" + encodeURIComponent(plainText(data));
 
       show("info",
-        "<strong>Sua mensagem está pronta — falta só enviar.</strong><br>" +
-        "O envio automático ainda não está ativo neste site. Escolha um canal abaixo: " +
-        "os seus dados já vão preenchidos." +
+        T.fallbackTitle + T.fallbackBody +
         '<span class="form-status__actions">' +
-        '<a class="btn btn--primary" href="' + mailto + '">Enviar por e-mail</a>' +
-        '<a class="btn btn--outline" target="_blank" rel="noopener" href="' + whats + '">Enviar pelo WhatsApp</a>' +
+        '<a class="btn btn--primary" href="' + mailto + '">' + T.byEmail + "</a>" +
+        '<a class="btn btn--outline" target="_blank" rel="noopener" href="' + whats + '">' + T.byWhats + "</a>" +
         "</span>");
     }
 
@@ -254,7 +294,7 @@
       };
 
       if (!validate(data, fields)) {
-        show("err", "Confira os campos destacados e tente novamente.");
+        show("err", T.errForm);
         return;
       }
 
@@ -268,14 +308,14 @@
       }
 
       if (submit) { submit.disabled = true; }
-      if (submitLabel) { submitLabel.textContent = "Enviando…"; }
+      if (submitLabel) { submitLabel.textContent = T.sending; }
 
       fetch(CONTACT.ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json", Accept: "application/json" },
         body: JSON.stringify({
           access_key: CONTACT.ACCESS_KEY,
-          subject: CONTACT.SUBJECT_PREFIX + " " + (data.subject || "Contato de " + data.name),
+          subject: CONTACT.SUBJECT_PREFIX + " " + (data.subject || T.contactFrom + data.name),
           from_name: data.name,
           name: data.name,
           email: data.email,
@@ -293,7 +333,7 @@
         })
         .then(function () {
           form.reset();
-          show("ok", "<strong>Mensagem enviada.</strong><br>Recebi seu contato e respondo em até 1 dia útil.");
+          show("ok", T.sent);
         })
         .catch(function (error) {
           // Nunca dizemos que deu certo quando não deu.
@@ -302,7 +342,7 @@
         })
         .finally(function () {
           if (submit) { submit.disabled = false; }
-          if (submitLabel) { submitLabel.textContent = "Enviar mensagem"; }
+          if (submitLabel) { submitLabel.textContent = T.submit; }
         });
     });
 

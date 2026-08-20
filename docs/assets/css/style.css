@@ -557,7 +557,7 @@ a:hover { color: var(--accent); }
    -------------------------------------------------------------------------- */
 .pillars {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(17rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(17rem, 100%), 1fr));
   gap: var(--sp-5);
 }
 .pillar {
@@ -613,7 +613,7 @@ a:hover { color: var(--accent); }
    -------------------------------------------------------------------------- */
 .projects {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(20rem, 100%), 1fr));
   gap: var(--sp-5);
 }
 .project {
@@ -738,7 +738,7 @@ a:hover { color: var(--accent); }
 }
 
 /* Estudos de caso de infraestrutura */
-.cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(19rem, 1fr)); gap: var(--sp-5); }
+.cases { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(19rem, 100%), 1fr)); gap: var(--sp-5); }
 .case {
   display: flex;
   flex-direction: column;
@@ -769,7 +769,7 @@ a:hover { color: var(--accent); }
 /* --------------------------------------------------------------------------
    10. Stack técnico
    -------------------------------------------------------------------------- */
-.stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: var(--sp-5); }
+.stack { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); gap: var(--sp-5); }
 .stack-group {
   background: var(--surface);
   border: 1px solid var(--rule);
@@ -873,7 +873,7 @@ a:hover { color: var(--accent); }
 /* --------------------------------------------------------------------------
    12. Formação e certificações
    -------------------------------------------------------------------------- */
-.creds { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: var(--sp-4); }
+.creds { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr)); gap: var(--sp-4); }
 .cred {
   background: var(--surface);
   border: 1px solid var(--rule);
@@ -1111,7 +1111,7 @@ a:hover { color: var(--accent); }
 /* --------------------------------------------------------------------------
    18. Complementos de projetos
    -------------------------------------------------------------------------- */
-.projects--featured { grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr)); }
+.projects--featured { grid-template-columns: repeat(auto-fit, minmax(min(25rem, 100%), 1fr)); }
 
 .more-projects {
   margin-top: var(--sp-6);
@@ -1129,7 +1129,7 @@ a:hover { color: var(--accent); }
 .more-projects__list {
   list-style: none;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(min(16rem, 100%), 1fr));
   gap: var(--sp-4);
 }
 .more-projects__list li { display: flex; flex-direction: column; gap: .2rem; }

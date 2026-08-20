@@ -1,0 +1,59 @@
+name: Qualidade do site
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  html-e-links:
+    name: HTML válido e links
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validar HTML e procurar links quebrados
+        uses: anishathalye/proof-html@v2
+        with:
+          directory: ./docs
+          check_html: true
+          check_favicon: true
+          check_external_hash: false
+          enforce_https: false
+          ignore_missing_alt: false
+          # Redes sociais bloqueiam robôs de verificação; o CV é enviado à parte.
+          url_ignore_re: |
+            ^https://www\.linkedin\.com/
+            ^https://www\.instagram\.com/
+            ^https://wa\.me/
+            rodrigo-dionizio-cv\.pdf$
+
+  performance:
+    name: Lighthouse
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Subir o site
+        run: npx --yes http-server ./docs -p 8080 --silent &
+
+      - name: Aguardar o servidor
+        run: npx --yes wait-on http://127.0.0.1:8080 --timeout 60000
+
+      - name: Rodar Lighthouse
+        uses: treosh/lighthouse-ci-action@v12
+        with:
+          urls: |
+            http://127.0.0.1:8080/
+            http://127.0.0.1:8080/en/
+          configPath: ./.github/lighthouserc.json
+          uploadArtifacts: true
+          temporaryPublicStorage: true

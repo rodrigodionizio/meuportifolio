@@ -2,962 +2,1085 @@
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+
+    <title>Rodrigo Dionizio — Infraestrutura de TI e Desenvolvimento Full Stack</title>
     <meta
       name="description"
-      content="Rodrigo Dionizio - Professor de Informática e Desenvolvedor Full Stack com 23 anos de experiência em TI. Especialista em Next.js, React, TypeScript e infraestrutura de redes."
+      content="Rodrigo Dionizio: 24 anos em tecnologia. Chefe de Departamento de TI, desenvolvedor full stack (Next.js, React, TypeScript, PostgreSQL) e professor técnico de Informática em Minas Gerais. Redes, servidores, VPN, MikroTik e plataformas SaaS em produção."
     />
     <meta
       name="keywords"
-      content="Rodrigo Dionizio, Professor Informática, Desenvolvedor Full Stack, Next.js, React, TypeScript, Infraestrutura TI"
+      content="Rodrigo Dionizio, infraestrutura de TI, administrador de redes, MikroTik, Windows Server, Active Directory, VPN, firewall, cabeamento estruturado, desenvolvedor full stack, Next.js, React, TypeScript, Node.js, PostgreSQL, Supabase, SaaS multi-tenant, professor de informática, docência técnica, gestão de TI, Itabirinha, Minas Gerais, Brasil, TI para prefeituras, analista de suporte, SQL Server"
     />
     <meta name="author" content="Rodrigo Dionizio" />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="theme-color" content="#0B4F5A" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0A1012" media="(prefers-color-scheme: dark)" />
+    <meta name="geo.region" content="BR-MG" />
+    <meta name="geo.placename" content="Itabirinha, Minas Gerais" />
 
-    <!-- Open Graph / Social Media -->
-    <meta property="og:type" content="website" />
-    <meta
-      property="og:title"
-      content="Rodrigo Dionizio - Professor & Desenvolvedor Full Stack"
-    />
+    <link rel="canonical" href="https://rodrigodionizio.github.io/meuportifolio/" />
+    <link rel="alternate" hreflang="pt-BR" href="https://rodrigodionizio.github.io/meuportifolio/" />
+    <link rel="alternate" hreflang="en" href="https://rodrigodionizio.github.io/meuportifolio/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://rodrigodionizio.github.io/meuportifolio/" />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="profile" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="Rodrigo Dionizio" />
+    <meta property="og:title" content="Rodrigo Dionizio — Infraestrutura de TI e Desenvolvimento Full Stack" />
     <meta
       property="og:description"
-      content="Professor de Informática e Desenvolvedor Full Stack com 23 anos de experiência em TI"
+      content="24 anos mantendo sistemas críticos no ar: redes, servidores e VPN, plataformas SaaS em produção e formação de profissionais de TI."
     />
+    <meta property="og:url" content="https://rodrigodionizio.github.io/meuportifolio/" />
+    <meta property="og:image" content="https://rodrigodionizio.github.io/meuportifolio/assets/og/og-image.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Rodrigo Dionizio — Infraestrutura de TI e Desenvolvimento Full Stack" />
+    <meta property="profile:first_name" content="Rodrigo" />
+    <meta property="profile:last_name" content="Dionizio" />
+
+    <!-- Twitter / X -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Rodrigo Dionizio — Infraestrutura de TI e Desenvolvimento Full Stack" />
     <meta
-      property="og:image"
-      content="./assets/imgs/profile-rodrigo-dionizio.png"
+      name="twitter:description"
+      content="24 anos mantendo sistemas críticos no ar: redes, servidores e VPN, plataformas SaaS em produção e formação de profissionais de TI."
     />
-    <meta property="og:url" content="https://rodrigodionizio.github.io" />
+    <meta name="twitter:image" content="https://rodrigodionizio.github.io/meuportifolio/assets/og/og-image.jpg" />
 
-    <title>Rodrigo Dionizio | Professor & Desenvolvedor Full Stack</title>
+    <!-- Ícones -->
+    <link rel="icon" href="./assets/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./assets/icons/favicon-32.png" sizes="32x32" type="image/png" />
+    <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png" />
+    <link rel="manifest" href="./site.webmanifest" />
 
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="./assets/imgs/favicon.png" />
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
-
-    <!-- Google Fonts -->
+    <!-- Tipografia -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <!-- Evita o piscar de tema claro antes do CSS aplicar a escolha salva -->
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t === "dark" || t === "light") document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+      })();
+    </script>
+
+    <!-- Dados estruturados para buscadores e agentes de IA -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Person",
+            "@id": "https://rodrigodionizio.github.io/meuportifolio/#rodrigo",
+            "name": "Rodrigo Dionizio",
+            "givenName": "Rodrigo",
+            "familyName": "Dionizio",
+            "jobTitle": ["Chefe de Departamento de TI", "Desenvolvedor Full Stack", "Professor de Informática"],
+            "description": "Profissional de tecnologia com 24 anos de experiência em infraestrutura de TI, desenvolvimento full stack e docência técnica.",
+            "email": "mailto:rodrigo.dionizio@gmail.com",
+            "telephone": "+55-33-98820-3127",
+            "image": "https://rodrigodionizio.github.io/meuportifolio/assets/img/profile-rodrigo-dionizio-960.jpg",
+            "url": "https://rodrigodionizio.github.io/meuportifolio/",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Itabirinha",
+              "addressRegion": "MG",
+              "addressCountry": "BR"
+            },
+            "worksFor": [
+              {
+                "@type": "GovernmentOrganization",
+                "name": "Prefeitura Municipal de Itabirinha",
+                "address": { "@type": "PostalAddress", "addressLocality": "Itabirinha", "addressRegion": "MG", "addressCountry": "BR" }
+              },
+              {
+                "@type": "GovernmentOrganization",
+                "name": "Governo do Estado de Minas Gerais — Secretaria de Estado de Educação"
+              }
+            ],
+            "knowsAbout": [
+              "Infraestrutura de redes LAN e WLAN",
+              "MikroTik RouterOS",
+              "Windows Server e Active Directory",
+              "VPN e firewall",
+              "Cabeamento estruturado certificado",
+              "Segurança da informação",
+              "Next.js",
+              "React",
+              "TypeScript",
+              "Node.js",
+              "PostgreSQL",
+              "SQL Server",
+              "Supabase",
+              "Arquitetura SaaS multi-tenant",
+              "Gestão de departamento de TI",
+              "Docência técnica em Informática"
+            ],
+            "sameAs": [
+              "https://github.com/rodrigodionizio",
+              "https://www.linkedin.com/in/rodrigodionizio",
+              "https://www.instagram.com/rodrigodionizio"
+            ],
+            "hasOccupation": {
+              "@type": "Occupation",
+              "name": "Chefe de Departamento de Tecnologia da Informação",
+              "occupationLocation": { "@type": "City", "name": "Itabirinha, MG" },
+              "skills": "Infraestrutura de redes, MikroTik, Windows Server, Active Directory, VPN, PostgreSQL, Next.js, React, TypeScript, gestão de equipes de TI"
+            }
+          },
+          {
+            "@type": "ProfilePage",
+            "@id": "https://rodrigodionizio.github.io/meuportifolio/#page",
+            "url": "https://rodrigodionizio.github.io/meuportifolio/",
+            "name": "Rodrigo Dionizio — Infraestrutura de TI e Desenvolvimento Full Stack",
+            "inLanguage": "pt-BR",
+            "mainEntity": { "@id": "https://rodrigodionizio.github.io/meuportifolio/#rodrigo" }
+          },
+          {
+            "@type": "ItemList",
+            "name": "Projetos em produção",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Sacristia Digital",
+                  "url": "https://sacristiadigital.com.br",
+                  "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "Web",
+                  "description": "Plataforma SaaS multi-tenant de gestão paroquial: agenda litúrgica, eventos, comunidade e relatórios.",
+                  "author": { "@id": "https://rodrigodionizio.github.io/meuportifolio/#rodrigo" }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "OSCRM",
+                  "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "Web",
+                  "description": "Sistema de HelpDesk e CRM interno para controle de ordens de serviço de tecnologia.",
+                  "author": { "@id": "https://rodrigodionizio.github.io/meuportifolio/#rodrigo" }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Calendário Litúrgico Paroquial",
+                  "url": "https://github.com/rodrigodionizio/calendario-liturgico-paroquial",
+                  "applicationCategory": "UtilitiesApplication",
+                  "operatingSystem": "Web",
+                  "description": "Aplicação web de calendário litúrgico com celebrações, santos do dia e leituras.",
+                  "author": { "@id": "https://rodrigodionizio.github.io/meuportifolio/#rodrigo" }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Sorteios Bom Jesus",
+                  "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "Web",
+                  "description": "Plataforma de campanhas, rifas e sorteios com acompanhamento público e prestação de contas.",
+                  "author": { "@id": "https://rodrigodionizio.github.io/meuportifolio/#rodrigo" }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    </script>
   </head>
+
   <body>
-    <!-- HEADER / NAVIGATION -->
-    <header class="header">
-      <nav class="nav">
-        <div class="logo">RD</div>
+    <a class="skip-link" href="#main">Ir para o conteúdo</a>
 
-        <ul class="nav-menu">
-          <li><a href="#home" class="nav-link active">Início</a></li>
-          <li><a href="#about" class="nav-link">Sobre</a></li>
-          <li><a href="#skills" class="nav-link">Habilidades</a></li>
-          <li><a href="#experience" class="nav-link">Experiência</a></li>
-          <li><a href="#projects" class="nav-link">Projetos</a></li>
-          <li><a href="#contact" class="nav-link">Contato</a></li>
-        </ul>
+    <!-- Biblioteca de ícones (substitui os emojis) -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true" focusable="false">
+      <defs>
+        <symbol id="i-server" viewBox="0 0 24 24">
+          <rect x="3" y="3" width="18" height="7" rx="2" /><rect x="3" y="14" width="18" height="7" rx="2" />
+          <path d="M7 6.5h.01M7 17.5h.01M11 6.5h4M11 17.5h4" />
+        </symbol>
+        <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6M16 6l6 6-6 6M13.5 4l-3 16" /></symbol>
+        <symbol id="i-teach" viewBox="0 0 24 24"><path d="M12 3 2 8l10 5 10-5-10-5Z" /><path d="M5 10.5V16c0 1.7 3.1 3 7 3s7-1.3 7-3v-5.5M21 8.5v6" /></symbol>
+        <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 5 6v5.5c0 4.2 2.9 8 7 9.5 4.1-1.5 7-5.3 7-9.5V6l-7-3Z" /><path d="m9.2 12 2 2 3.6-3.8" /></symbol>
+        <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="6" rx="8" ry="3" /><path d="M4 6v12c0 1.7 3.6 3 8 3s8-1.3 8-3V6M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3" /></symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2.5" y="5" width="19" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></symbol>
+        <symbol id="i-whats" viewBox="0 0 24 24"><path d="M3.5 20.5 5 16.4A8.2 8.2 0 1 1 8.2 19.6l-4.7.9Z" /><path d="M9 9.2c0 3 2.4 5.3 5.2 5.6.7.1 1.3-.5 1.3-1.2v-.5l-1.9-.8-.9 1a5 5 0 0 1-2.3-2.3l1-.9-.8-1.9h-.5c-.7 0-1.2.6-1.1 1.3v-.3Z" /></symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3" /><path d="M7.5 10.5V17M7.5 7.4v.1M11.5 17v-3.6c0-1.6 1-2.6 2.4-2.6s2.6 1 2.6 2.6V17" /></symbol>
+        <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-4 1.3-4-2.2-5.5-2.7M15 21v-3.3c0-.9-.3-1.5-.7-1.9 2.5-.3 5-1.3 5-5.6a4.3 4.3 0 0 0-1.2-3 4 4 0 0 0-.1-3S17 4 14.9 5.4a12 12 0 0 0-6 0C6.9 4 6 4.2 6 4.2a4 4 0 0 0-.1 3A4.3 4.3 0 0 0 4.7 10c0 4.3 2.5 5.3 5 5.6-.4.4-.6.9-.7 1.6V21" /></symbol>
+        <symbol id="i-instagram" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><path d="M17.2 6.8h.01" /></symbol>
+        <symbol id="i-pin" viewBox="0 0 24 24"><path d="M20 10c0 5.5-8 12-8 12s-8-6.5-8-12a8 8 0 1 1 16 0Z" /><circle cx="12" cy="10" r="3" /></symbol>
+        <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7.5 10.5 12 15l4.5-4.5M4 19h16" /></symbol>
+        <symbol id="i-external" viewBox="0 0 24 24"><path d="M14 4h6v6M20 4l-9 9M18 13.5V19a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5.5" /></symbol>
+        <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6" /></symbol>
+        <symbol id="i-check" viewBox="0 0 24 24"><path d="m4.5 12.5 5 5 10-11" /></symbol>
+        <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2" /><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M19.1 4.9l-1.8 1.8M6.7 17.3l-1.8 1.8" /></symbol>
+        <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z" /></symbol>
+        <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" /></symbol>
+      </defs>
+    </svg>
 
-        <button class="menu-toggle" aria-label="Toggle menu">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-      </nav>
+    <!-- ================= CABEÇALHO ================= -->
+    <header class="site-header">
+      <div class="wrap nav">
+        <a class="brandmark" href="#home" aria-label="Rodrigo Dionizio — início">
+          <span class="brandmark__mark" aria-hidden="true">R<span>D</span></span>
+          <span class="brandmark__text">
+            Rodrigo Dionizio
+            <span class="brandmark__role">Infraestrutura · Full Stack</span>
+          </span>
+        </a>
+
+        <nav aria-label="Navegação principal">
+          <ul class="nav-menu" id="nav-menu">
+            <li><a class="nav-link" href="#especialidades">Especialidades</a></li>
+            <li><a class="nav-link" href="#projetos">Projetos</a></li>
+            <li><a class="nav-link" href="#infraestrutura">Infraestrutura</a></li>
+            <li><a class="nav-link" href="#stack">Stack</a></li>
+            <li><a class="nav-link" href="#experiencia">Experiência</a></li>
+            <li><a class="nav-link" href="#contato">Contato</a></li>
+          </ul>
+        </nav>
+
+        <div class="nav-tools">
+          <a class="lang-switch" href="./en/" hreflang="en" aria-label="Switch to English version">EN</a>
+          <button class="icon-btn" type="button" data-theme-toggle aria-label="Mudar de tema">
+            <svg class="icon" data-theme-icon="light" aria-hidden="true"><use href="#i-moon" /></svg>
+            <svg class="icon" data-theme-icon="dark" aria-hidden="true"><use href="#i-sun" /></svg>
+          </button>
+          <button
+            class="icon-btn menu-toggle"
+            type="button"
+            aria-label="Abrir menu"
+            aria-expanded="false"
+            aria-controls="nav-menu"
+          >
+            <svg class="icon" aria-hidden="true"><use href="#i-menu" /></svg>
+          </button>
+        </div>
+      </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section id="home" class="hero">
-      <div class="container">
-        <div class="hero-content">
+    <main id="main">
+      <!-- ================= HERO ================= -->
+      <section class="hero" id="home">
+        <div class="wrap hero-grid">
           <div class="hero-text">
+            <p class="hero-status">Aberto a novas oportunidades</p>
             <h1>Rodrigo Dionizio</h1>
-            <p class="hero-subtitle">
-              Professor de Informática | Desenvolvedor Full Stack | Especialista
-              em Infraestrutura
+            <p class="hero-role">
+              Infraestrutura de TI · Desenvolvimento Full Stack<br />
+              <em>Docência técnica como competência de sustentação</em>
             </p>
-            <p class="hero-description">
-              23 anos transformando conhecimento técnico em soluções práticas e
-              formando profissionais de TI. Combino expertise em desenvolvimento
-              web moderno com experiência docente consolidada.
+            <p class="hero-lead">
+              <strong><span data-years-in-tech>24</span> anos</strong> mantendo sistemas críticos no ar. Projeto e
+              administro redes, servidores e VPNs desde 2002 — e construo as aplicações que rodam sobre elas, hoje em
+              Next.js, TypeScript e PostgreSQL. Quatro sistemas meus estão em produção neste momento.
             </p>
-            <div class="btn-group">
-              <a href="#contact" class="btn btn-primary">Entre em Contato</a>
-              <a href="#projects" class="btn btn-outline">Ver Projetos</a>
+            <div class="hero-actions">
+              <a class="btn btn--primary" href="./assets/cv/rodrigo-dionizio-cv.pdf" download>
+                <svg class="icon" aria-hidden="true"><use href="#i-download" /></svg>
+                Baixar CV (PDF)
+              </a>
+              <a class="btn btn--outline" href="#projetos">
+                Ver projetos em produção
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow" /></svg>
+              </a>
+              <a class="btn btn--ghost" href="https://www.linkedin.com/in/rodrigodionizio" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-linkedin" /></svg>
+                LinkedIn
+              </a>
             </div>
           </div>
 
-          <div class="hero-image-container">
-            <!-- TODO: Adicionar foto profissional -->
-            <img
-              src="./assets/imgs/profile-rodrigo-dionizio.png"
-              alt="Rodrigo Dionizio"
-              class="hero-image"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ABOUT SECTION -->
-    <section id="about" class="section">
-      <div class="container">
-        <h2 class="section-title">Sobre Mim</h2>
-
-        <div class="grid grid-2">
-          <div class="card">
-            <div class="card-header">
-              <div class="card-icon">🎓</div>
-              <div>
-                <h3 class="card-title">Docência</h3>
-                <p class="card-subtitle">
-                  Professor PEB I - Governo de Minas Gerais
-                </p>
-              </div>
-            </div>
-            <p class="card-description">
-              Experiência consolidada em cursos técnicos (2013-2014 e
-              2023-atual), lecionando Lógica de Programação, Planilhas
-              Eletrônicas e Informática para Internet. Mais de 100 alunos
-              formados com metodologia própria focada em aprendizado prático e
-              real.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-icon">💻</div>
-              <div>
-                <h3 class="card-title">Desenvolvimento</h3>
-                <p class="card-subtitle">Full Stack Developer</p>
-              </div>
-            </div>
-            <p class="card-description">
-              Desenvolvedor Full Stack com portfólio em Next.js, React e
-              TypeScript. Criação de soluções SaaS escaláveis, APIs robustas e
-              interfaces modernas. Experiência com arquitetura de sistemas e
-              boas práticas de desenvolvimento.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-icon">🌐</div>
-              <div>
-                <h3 class="card-title">Infraestrutura</h3>
-                <p class="card-subtitle">23 anos de experiência</p>
-              </div>
-            </div>
-            <p class="card-description">
-              Chefe do Departamento de TI da Prefeitura de Itabirinha desde
-              2002. Expertise em redes LAN/WLAN, servidores Windows, Active
-              Directory, bancos de dados SQL e segurança da informação.
-              Certificação Furukawa em cabeamento estruturado.
-            </p>
-          </div>
-
-          <div class="card">
-            <div class="card-header">
-              <div class="card-icon">⚡</div>
-              <div>
-                <h3 class="card-title">Soft Skills</h3>
-                <p class="card-subtitle">Liderança & Gestão</p>
-              </div>
-            </div>
-            <p class="card-description">
-              Gestão de projetos e equipes, comunicação efetiva, resolução
-              criativa de problemas e aprendizado contínuo. Capacitação de mais
-              de 200 servidores públicos em sistemas corporativos. Habilidade
-              para traduzir conceitos técnicos complexos em linguagem acessível.
-            </p>
-          </div>
-        </div>
-
-        <div class="text-center mt-lg">
-          <p
-            style="
-              font-size: 1.125rem;
-              color: var(--text-secondary);
-              max-width: 800px;
-              margin: 0 auto;
-            "
-          >
-            <em
-              >"Transformando conhecimento técnico complexo em aprendizado
-              acessível há mais de duas décadas. Minha missão é formar
-              profissionais preparados para os desafios reais do mercado de
-              TI."</em
-            >
-          </p>
-        </div>
-      </div>
-    </section>
-
-    <!-- SKILLS SECTION -->
-    <section id="skills" class="section" style="background: var(--bg-primary)">
-      <div class="container">
-        <h2 class="section-title">Habilidades Técnicas</h2>
-
-        <div class="skills-grid">
-          <!-- Desenvolvimento -->
-          <div class="skill-category">
-            <h3 class="skill-category-title">💻 Desenvolvimento</h3>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Next.js / React</span>
-                <span class="skill-level">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="80%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">TypeScript</span>
-                <span class="skill-level">75%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="75%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">JavaScript</span>
-                <span class="skill-level">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">HTML / CSS</span>
-                <span class="skill-level">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="90%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Node.js</span>
-                <span class="skill-level">70%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="70%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">SQL / Bancos de Dados</span>
-                <span class="skill-level">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85%"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Infraestrutura -->
-          <div class="skill-category">
-            <h3 class="skill-category-title">🌐 Infraestrutura & Redes</h3>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Redes LAN / WLAN</span>
-                <span class="skill-level">95%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="95%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Windows Server / AD</span>
-                <span class="skill-level">95%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="95%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">VPN / Firewall</span>
-                <span class="skill-level">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="90%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">MikroTik</span>
-                <span class="skill-level">95%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="95%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Cabeamento Estruturado</span>
-                <span class="skill-level">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="90%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Segurança da Informação</span>
-                <span class="skill-level">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85%"></div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Docência -->
-          <div class="skill-category">
-            <h3 class="skill-category-title">🎓 Docência & Pedagogia</h3>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Planejamento de Aulas</span>
-                <span class="skill-level">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Metodologias Ativas</span>
-                <span class="skill-level">80%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="80%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Material Didático</span>
-                <span class="skill-level">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Capacitação Técnica</span>
-                <span class="skill-level">90%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="90%"></div>
-              </div>
-            </div>
-
-            <div class="skill-item">
-              <div class="skill-info">
-                <span class="skill-name">Gestão de Laboratórios</span>
-                <span class="skill-level">85%</span>
-              </div>
-              <div class="skill-bar">
-                <div class="skill-progress" data-width="85%"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- EXPERIENCE SECTION -->
-    <section id="experience" class="section">
-      <div class="container">
-        <h2 class="section-title">Experiência Profissional</h2>
-
-        <div class="timeline">
-          <!-- Experience 1 -->
-          <div class="timeline-item">
-            <div class="timeline-date">2023 - Atual</div>
-            <h3 class="timeline-title">Professor PEB I - Informática</h3>
-            <p class="timeline-company">Governo do Estado de Minas Gerais</p>
-            <p class="timeline-description">
-              Docência em Curso Técnico em Informática com ênfase em Internet.
-              Disciplinas: Lógica de Programação, Planilhas Eletrônicas e
-              Informática para Internet. Desenvolvimento de planos de aula,
-              material didático prático e metodologias ativas. Mais de 100
-              alunos formados com preparação para o mercado de trabalho.
-            </p>
-            <div class="project-tech" style="margin-top: 1rem">
-              <span class="tech-tag">Docência</span>
-              <span class="tech-tag">Lógica de Programação</span>
-              <span class="tech-tag">Excel Avançado</span>
-              <span class="tech-tag">Desenvolvimento Web</span>
-            </div>
-          </div>
-
-          <!-- Experience 2 -->
-          <div class="timeline-item">
-            <div class="timeline-date">2002 - Atual</div>
-            <h3 class="timeline-title">Chefe do Departamento de TI</h3>
-            <p class="timeline-company">Prefeitura Municipal de Itabirinha</p>
-            <p class="timeline-description">
-              Liderança técnica e gestão completa da infraestrutura de TI
-              municipal. Desenvolvimento de soluções web institucionais,
-              administração de bancos de dados SQL Server e PostgreSQL,
-              gerenciamento de redes LAN/WLAN e servidores Windows Server com
-              Active Directory. Capacitação de mais de 200 servidores públicos
-              em sistemas corporativos. Modernização tecnológica com redução de
-              60% nos custos operacionais.
-            </p>
-            <div class="project-tech" style="margin-top: 1rem">
-              <span class="tech-tag">Liderança</span>
-              <span class="tech-tag">Infraestrutura</span>
-              <span class="tech-tag">Redes</span>
-              <span class="tech-tag">SQL Server</span>
-              <span class="tech-tag">Active Directory</span>
-            </div>
-          </div>
-
-          <!-- Experience 3 -->
-          <div class="timeline-item">
-            <div class="timeline-date">2013 - 2024</div>
-            <h3 class="timeline-title">Prestador de Serviços em TI</h3>
-            <p class="timeline-company">
-              Diversos Clientes (SERTEC, Vila Nova, outros)
-            </p>
-            <p class="timeline-description">
-              Administração de servidores Windows, roteadores MikroTik e
-              infraestrutura de rede corporativa. Suporte a ERP Alterdata (RH,
-              Tributos, Contabilidade). Implementação de soluções de VPN,
-              firewall e segurança de rede. Suporte técnico remoto e presencial
-              a usuários corporativos.
-            </p>
-            <div class="project-tech" style="margin-top: 1rem">
-              <span class="tech-tag">Consultoria</span>
-              <span class="tech-tag">MikroTik</span>
-              <span class="tech-tag">ERP</span>
-              <span class="tech-tag">VPN</span>
-            </div>
-          </div>
-
-          <!-- Experience 4 -->
-          <div class="timeline-item">
-            <div class="timeline-date">2018 - 2020</div>
-            <h3 class="timeline-title">Supervisor de Informática</h3>
-            <p class="timeline-company">
-              Prefeitura Municipal de São José do Divino
-            </p>
-            <p class="timeline-description">
-              Administração completa da infraestrutura de TI municipal. Suporte
-              técnico a todos os setores administrativos. Gestão de redes,
-              servidores e sistemas corporativos.
-            </p>
-          </div>
-
-          <!-- Experience 5 -->
-          <div class="timeline-item">
-            <div class="timeline-date">2013 - 2014</div>
-            <h3 class="timeline-title">Professor PEB I - Informática</h3>
-            <p class="timeline-company">Governo do Estado de Minas Gerais</p>
-            <p class="timeline-description">
-              Primeira experiência docente em Curso Técnico em Informática.
-              Aulas de Informática Básica e Aplicada, fundamentos de TI,
-              hardware, sistemas operacionais e aplicativos de escritório.
-              Gestão de laboratório e acompanhamento pedagógico individualizado.
-            </p>
-          </div>
-
-          <!-- Experience 6 -->
-          <div class="timeline-item">
-            <div class="timeline-date">2008</div>
-            <h3 class="timeline-title">Analista de Suporte</h3>
-            <p class="timeline-company">TOTVS S.A. - Unidade Leste de Minas</p>
-            <p class="timeline-description">
-              Suporte técnico a clientes do sistema RM (Gestão Educacional).
-              Desenvolvimento de consultas SQL complexas e relatórios
-              customizados. Análise e resolução de problemas em banco de dados e
-              aplicações.
-            </p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PROJECTS SECTION -->
-    <section
-      id="projects"
-      class="section"
-      style="background: var(--bg-primary)"
-    >
-      <div class="container">
-        <h2 class="section-title">Projetos</h2>
-
-        <div class="grid grid-3">
-          <!-- Project 1: Sacristia Digital -->
-          <div class="project-card">
-            <div class="project-image-container">
-              <!-- TODO: Adicionar screenshot do projeto -->
-              <img
-                src="./assets/imgs/projects/sacristia-digital.png"
-                alt="Sacristia Digital"
-                class="project-image"
+          <figure class="hero-figure">
+            <picture>
+              <source
+                type="image/webp"
+                srcset="./assets/img/profile-rodrigo-dionizio-480.webp 480w, ./assets/img/profile-rodrigo-dionizio-960.webp 960w"
+                sizes="(max-width: 860px) 17rem, 24rem"
               />
-              <div class="project-overlay">
-                <span class="project-badge">SaaS</span>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Sacristia Digital</h3>
-              <p class="project-type">Desenvolvimento SaaS</p>
-              <p class="project-description">
-                Plataforma SaaS completa para gestão paroquial com sistema de
-                autenticação, painel administrativo e dashboard analítico.
-                Arquitetura multitenancy com gerenciamento de usuários,
-                permissões e módulos de gestão litúrgica.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Next.js 14</span>
-                <span class="tech-tag">React 18</span>
-                <span class="tech-tag">TypeScript</span>
-                <span class="tech-tag">Tailwind</span>
-                <span class="tech-tag">PostgreSQL</span>
-                <span class="tech-tag">NextAuth</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://sacristiadigital.com.br"
-                  target="_blank"
-                  class="project-link"
-                  >Ver Demo</a
-                >
-                <a
-                  href="https://github.com/rodrigodionizio/sacristia-digital"
-                  target="_blank"
-                  class="project-link"
-                  >GitHub</a
-                >
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 2: PoupeMais -->
-          <div class="project-card">
-            <div class="project-image-container">
-              <!-- TODO: Adicionar screenshot do projeto -->
               <img
-                src="./assets/imgs/projects/poupemais.png"
-                alt="PoupeMais"
-                class="project-image"
+                src="./assets/img/profile-rodrigo-dionizio-960.jpg"
+                width="928"
+                height="928"
+                alt="Retrato de Rodrigo Dionizio"
+                fetchpriority="high"
+                decoding="async"
               />
-              <div class="project-overlay">
-                <span class="project-badge">Web App</span>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">PoupeMais</h3>
-              <p class="project-type">Aplicação Web</p>
-              <p class="project-description">
-                Sistema de gestão de finanças pessoais com controle de receitas,
-                despesas, categorização automática e planejamento financeiro.
-                Interface intuitiva com gráficos interativos e relatórios
-                analíticos.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">React</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">Chart.js</span>
-                <span class="tech-tag">Local Storage</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://rodrigodionizio.github.io/PoupeMais/"
-                  target="_blank"
-                  class="project-link"
-                  >Ver Demo</a
-                >
-                <a
-                  href="https://github.com/rodrigodionizio/PoupeMais"
-                  target="_blank"
-                  class="project-link"
-                  >GitHub</a
-                >
-              </div>
-            </div>
-          </div>
+            </picture>
+          </figure>
+        </div>
+      </section>
 
-          <!-- Project 3: Calendário Litúrgico -->
-          <div class="project-card">
-            <div class="project-image-container">
-              <!-- TODO: Adicionar screenshot do projeto -->
-              <img
-                src="./assets/imgs/projects/calendario-liturgico.png"
-                alt="Calendário Litúrgico"
-                class="project-image"
-              />
-              <div class="project-overlay">
-                <span class="project-badge">Web</span>
-              </div>
+      <!-- ================= MÉTRICAS ================= -->
+      <section class="metrics" aria-label="Números da carreira">
+        <div class="wrap">
+          <div class="metrics-grid">
+            <div class="metric">
+              <span class="metric__value"><span data-years-in-tech>24</span></span>
+              <span class="metric__label">anos em tecnologia, sem interrupção desde 2002</span>
             </div>
-            <div class="project-content">
-              <h3 class="project-title">Calendário Litúrgico Paroquial</h3>
-              <p class="project-type">Sistema Web Responsivo</p>
-              <p class="project-description">
-                Sistema web com integração de dados litúrgicos do Vaticano.
-                Calendário interativo com informações diárias de celebrações,
-                santos do dia e leituras bíblicas. Performance otimizada sem
-                frameworks.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">HTML5</span>
-                <span class="tech-tag">CSS3</span>
-                <span class="tech-tag">JavaScript</span>
-                <span class="tech-tag">API</span>
-              </div>
-              <div class="project-links">
-                <a
-                  href="https://rodrigodionizio.github.io/calendario-liturgico-paroquial/"
-                  target="_blank"
-                  class="project-link"
-                  >Ver Demo</a
-                >
-                <a
-                  href="https://github.com/rodrigodionizio/calendario-liturgico-paroquial"
-                  target="_blank"
-                  class="project-link"
-                  >GitHub</a
-                >
-              </div>
+            <div class="metric">
+              <span class="metric__value">4</span>
+              <span class="metric__label">sistemas próprios em produção hoje</span>
             </div>
-          </div>
-
-          <!-- Project 4: Infraestrutura BIONALISE -->
-          <div class="project-card">
-            <div class="project-image-container">
-              <!-- TODO: Adicionar foto do projeto -->
-              <!-- <img src="./assets/imgs/projects/bionalise.jpg" alt="BIONALISE" class="project-image"> -->
-              <div class="project-image-placeholder">🌐</div>
-              <div class="project-overlay">
-                <span class="project-badge">Infraestrutura</span>
-              </div>
+            <div class="metric">
+              <span class="metric__value">200+</span>
+              <span class="metric__label">servidores públicos capacitados em sistemas corporativos</span>
             </div>
-            <div class="project-content">
-              <h3 class="project-title">Infraestrutura BIONALISE</h3>
-              <p class="project-type">Projeto de Infraestrutura</p>
-              <p class="project-description">
-                Implantação completa de Wi-Fi corporativo, firewall MikroTik,
-                organização de racks e redes segmentadas para empresa de
-                análises clínicas. Projeto executado em 3 meses com alta
-                disponibilidade e segurança.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">MikroTik</span>
-                <span class="tech-tag">Wi-Fi Corporativo</span>
-                <span class="tech-tag">Firewall</span>
-                <span class="tech-tag">Cabeamento</span>
-              </div>
+            <div class="metric">
+              <span class="metric__value">100+</span>
+              <span class="metric__label">alunos formados em curso técnico de Informática</span>
             </div>
-          </div>
-
-          <!-- Project 5: VPN ITALAB -->
-          <div class="project-card">
-            <div class="project-image-container">
-              <!-- TODO: Adicionar foto do projeto -->
-              <!-- <img src="./assets/imgs/projects/italab.jpg" alt="ITALAB" class="project-image"> -->
-              <div class="project-image-placeholder">🔐</div>
-              <div class="project-overlay">
-                <span class="project-badge">VPN</span>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">VPN ITALAB</h3>
-              <p class="project-type">Conectividade Segura</p>
-              <p class="project-description">
-                Implementação de VPN e infraestrutura MikroTik interligando
-                pontos remotos de laboratório de análises clínicas com segurança
-                e confiabilidade. Conectividade 24/7 para operações críticas.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">VPN</span>
-                <span class="tech-tag">MikroTik</span>
-                <span class="tech-tag">Interligação</span>
-                <span class="tech-tag">Segurança</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Project 6: Datacenter Vila Nova -->
-          <div class="project-card">
-            <div class="project-image-container">
-              <!-- TODO: Adicionar foto do projeto -->
-              <!-- <img src="./assets/imgs/projects/vila-nova.jpg" alt="Vila Nova" class="project-image"> -->
-              <div class="project-image-placeholder">🏢</div>
-              <div class="project-overlay">
-                <span class="project-badge">Datacenter</span>
-              </div>
-            </div>
-            <div class="project-content">
-              <h3 class="project-title">Datacenter Laticínios Vila Nova</h3>
-              <p class="project-type">Infraestrutura Completa</p>
-              <p class="project-description">
-                Implantação de datacenter completo com rack 24U, rede
-                estruturada, CFTV, telefonia IP e servidor para indústria de
-                laticínios. Projeto de 4 meses incluindo cabeamento certificado
-                Furukawa.
-              </p>
-              <div class="project-tech">
-                <span class="tech-tag">Datacenter</span>
-                <span class="tech-tag">Rack 24U</span>
-                <span class="tech-tag">CFTV</span>
-                <span class="tech-tag">Telefonia IP</span>
-              </div>
+            <div class="metric">
+              <span class="metric__value">−60%</span>
+              <span class="metric__label">de custo operacional de TI após modernização</span>
             </div>
           </div>
         </div>
+      </section>
 
-        <div class="text-center mt-lg">
-          <a
-            href="https://github.com/rodrigodionizio"
-            target="_blank"
-            class="btn btn-primary"
-          >
-            Ver Mais no GitHub
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT SECTION -->
-    <section id="contact" class="section">
-      <div class="container">
-        <h2 class="section-title">Contato</h2>
-
-        <div class="contact-grid">
-          <!-- Contact Info -->
-          <div class="contact-info">
-            <div class="contact-item">
-              <div class="contact-icon">📧</div>
-              <div class="contact-details">
-                <h3>Email</h3>
-                <p>
-                  <a href="mailto:rodrigo.dionizio@gmail.com"
-                    >rodrigo.dionizio@gmail.com</a
-                  >
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">📱</div>
-              <div class="contact-details">
-                <h3>WhatsApp</h3>
-                <p>
-                  <a href="https://wa.me/5533988203127" target="_blank"
-                    >(33) 98820-3127</a
-                  >
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">💼</div>
-              <div class="contact-details">
-                <h3>LinkedIn</h3>
-                <p>
-                  <a
-                    href="https://www.linkedin.com/in/rodrigodionizio"
-                    target="_blank"
-                    >linkedin.com/in/rodrigodionizio</a
-                  >
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">💻</div>
-              <div class="contact-details">
-                <h3>GitHub</h3>
-                <p>
-                  <a href="https://github.com/rodrigodionizio" target="_blank"
-                    >github.com/rodrigodionizio</a
-                  >
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">📸</div>
-              <div class="contact-details">
-                <h3>Instagram</h3>
-                <p>
-                  <a
-                    href="https://www.instagram.com/rodrigodionizio"
-                    target="_blank"
-                    >@rodrigodionizio</a
-                  >
-                </p>
-              </div>
-            </div>
-
-            <div class="contact-item">
-              <div class="contact-icon">📍</div>
-              <div class="contact-details">
-                <h3>Localização</h3>
-                <p>Itabirinha, Minas Gerais, Brasil</p>
-              </div>
-            </div>
+      <!-- ================= ESPECIALIDADES ================= -->
+      <section class="section" id="especialidades">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow">Especialidades</p>
+            <h2 class="section-title">Duas frentes principais, uma competência que sustenta as duas</h2>
+            <p class="section-intro">
+              Infraestrutura e desenvolvimento são o centro do meu trabalho. Docência e gestão são o que me faz
+              documentar, explicar e entregar tudo isso de forma que outra pessoa consiga operar depois de mim.
+            </p>
           </div>
 
-          <!-- Contact Form -->
-          <div>
-            <div class="card">
-              <h3 style="margin-bottom: 1.5rem">Envie uma Mensagem</h3>
-              <form id="contact-form">
-                <div class="form-group">
-                  <label for="name" class="form-label">Nome *</label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    class="form-input"
-                    placeholder="Seu nome completo"
-                    required
+          <div class="pillars">
+            <article class="pillar pillar--primary reveal">
+              <p class="pillar__rank">Frente principal 1</p>
+              <div class="pillar__head">
+                <svg class="icon" aria-hidden="true"><use href="#i-server" /></svg>
+                <h3>Infraestrutura de TI</h3>
+              </div>
+              <p>
+                Vinte e quatro anos projetando, implantando e operando a infraestrutura que não pode parar: rede,
+                servidores, conectividade entre unidades e segurança de perímetro.
+              </p>
+              <ul class="pillar__list">
+                <li>Redes LAN/WLAN segmentadas, VLANs e Wi-Fi corporativo</li>
+                <li>MikroTik RouterOS: roteamento, firewall, VPN site-to-site</li>
+                <li>Windows Server, Active Directory, políticas de grupo</li>
+                <li>Cabeamento estruturado com certificação Furukawa</li>
+                <li>Backup, continuidade e segurança da informação</li>
+              </ul>
+            </article>
+
+            <article class="pillar pillar--primary reveal">
+              <p class="pillar__rank">Frente principal 2</p>
+              <div class="pillar__head">
+                <svg class="icon" aria-hidden="true"><use href="#i-code" /></svg>
+                <h3>Desenvolvimento Full Stack</h3>
+              </div>
+              <p>
+                Aplicações web que resolvem um problema real e entram em produção — desenhadas por quem também vai
+                manter o servidor, o banco e o suporte depois do deploy.
+              </p>
+              <ul class="pillar__list">
+                <li>Next.js, React e TypeScript em aplicações de produção</li>
+                <li>Arquitetura SaaS multi-tenant com autenticação e permissões</li>
+                <li>PostgreSQL, SQL Server e Supabase; modelagem e consultas</li>
+                <li>APIs, integrações e painéis administrativos</li>
+                <li>Deploy contínuo em Vercel e GitHub Pages</li>
+              </ul>
+            </article>
+
+            <article class="pillar pillar--support reveal">
+              <p class="pillar__rank">Competência de sustentação</p>
+              <div class="pillar__head">
+                <svg class="icon" aria-hidden="true"><use href="#i-teach" /></svg>
+                <h3>Docência, gestão e comunicação</h3>
+              </div>
+              <p>
+                Não é uma terceira carreira: é o que torna as duas primeiras confiáveis em equipe. Quem ensina precisa
+                documentar bem, simplificar o complexo e transferir conhecimento.
+              </p>
+              <ul class="pillar__list">
+                <li>Professor PEB I de Informática — Governo de Minas Gerais</li>
+                <li>Chefia de departamento, orçamento e fornecedores</li>
+                <li>Capacitação de equipes em sistemas corporativos</li>
+                <li>Documentação técnica e transferência de conhecimento</li>
+                <li>Interlocução entre área técnica e gestão</li>
+              </ul>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= PROJETOS EM PRODUÇÃO ================= -->
+      <section class="section section--alt" id="projetos">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow">Software em produção</p>
+            <h2 class="section-title">Sistemas com usuários reais, mantidos por mim</h2>
+            <p class="section-intro">
+              Não são exercícios de estudo. São quatro aplicações no ar, com pessoas dependendo delas — construídas,
+              publicadas e mantidas do banco de dados ao suporte.
+            </p>
+          </div>
+
+          <div class="projects projects--featured">
+            <!-- Sacristia Digital -->
+            <article class="project reveal">
+              <div class="project__media">
+                <span class="project__status project__status--live">Em produção</span>
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset="./assets/img/projects/sacristia-digital-640.webp 640w, ./assets/img/projects/sacristia-digital-1280.webp 1280w"
+                    sizes="(max-width: 860px) 100vw, 34rem"
                   />
-                </div>
-
-                <div class="form-group">
-                  <label for="email" class="form-label">Email *</label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    class="form-input"
-                    placeholder="seu@email.com"
-                    required
+                  <img
+                    src="./assets/img/projects/sacristia-digital-1280.jpg"
+                    width="1280" height="762"
+                    alt="Interface da plataforma Sacristia Digital"
+                    loading="lazy" decoding="async"
                   />
+                </picture>
+              </div>
+              <div class="project__body">
+                <p class="project__kicker">Plataforma SaaS · produto próprio</p>
+                <h3>Sacristia Digital</h3>
+                <p>
+                  Plataforma SaaS multi-tenant de gestão paroquial: agenda litúrgica, controle de eventos, gestão de
+                  comunidade e relatórios. Cada paróquia opera em ambiente isolado, com autenticação, níveis de
+                  permissão e painel administrativo próprios.
+                </p>
+                <p class="project__impact">Domínio próprio · multi-tenant · produto comercial</p>
+                <ul class="tags">
+                  <li class="tag">Next.js</li><li class="tag">TypeScript</li><li class="tag">React</li>
+                  <li class="tag">PostgreSQL</li><li class="tag">Tailwind</li><li class="tag">Vercel</li>
+                </ul>
+                <div class="project__links">
+                  <a class="project__link" href="https://sacristiadigital.com.br" target="_blank" rel="noopener">
+                    <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                    sacristiadigital.com.br
+                  </a>
+                  <span class="project__note">código fechado</span>
                 </div>
+              </div>
+            </article>
 
-                <div class="form-group">
-                  <label for="phone" class="form-label">Telefone</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    class="form-input"
-                    placeholder="(00) 00000-0000"
+            <!-- OSCRM -->
+            <article class="project reveal">
+              <div class="project__media">
+                <span class="project__status project__status--live">Em produção</span>
+                <img
+                  src="./assets/img/projects/oscrm.jpg"
+                  width="1280" height="800"
+                  alt="Mapa de módulos do sistema OSCRM: abertura de OS, triagem, fila e SLA, motor de fluxo, técnicos, histórico, relatórios e painel"
+                  loading="lazy" decoding="async"
+                />
+              </div>
+              <div class="project__body">
+                <p class="project__kicker">HelpDesk e CRM interno</p>
+                <h3>OSCRM</h3>
+                <p>
+                  Sistema de ordens de serviço de TI construído para substituir planilhas e e-mail no atendimento
+                  interno: abertura de chamado, triagem por prioridade, fila com SLA, atribuição a técnicos, histórico e
+                  relatórios de tempo médio e volume.
+                </p>
+                <p class="project__impact">Uso interno diário · fila com SLA · relatórios de atendimento</p>
+                <ul class="tags">
+                  <li class="tag">Next.js</li><li class="tag">TypeScript</li><li class="tag">PostgreSQL</li>
+                  <li class="tag">Vercel</li>
+                </ul>
+                <div class="project__links">
+                  <a class="project__link" href="https://project-wza36.vercel.app" target="_blank" rel="noopener">
+                    <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                    Acessar o sistema
+                  </a>
+                  <span class="project__note">código fechado</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Calendário Litúrgico -->
+            <article class="project reveal">
+              <div class="project__media">
+                <span class="project__status project__status--live">Em produção</span>
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset="./assets/img/projects/calendario-liturgico-640.webp 640w, ./assets/img/projects/calendario-liturgico-1280.webp 1280w"
+                    sizes="(max-width: 860px) 100vw, 34rem"
                   />
-                </div>
-
-                <div class="form-group">
-                  <label for="subject" class="form-label">Assunto</label>
-                  <input
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    class="form-input"
-                    placeholder="Assunto da mensagem"
+                  <img
+                    src="./assets/img/projects/calendario-liturgico-1280.jpg"
+                    width="1280" height="688"
+                    alt="Interface do Calendário Litúrgico Paroquial"
+                    loading="lazy" decoding="async"
                   />
+                </picture>
+              </div>
+              <div class="project__body">
+                <p class="project__kicker">Aplicação web · código aberto</p>
+                <h3>Calendário Litúrgico Paroquial</h3>
+                <p>
+                  Calendário litúrgico com celebrações do dia, santos e leituras, consumido diariamente pela comunidade
+                  da Paróquia Senhor Bom Jesus de Itabirinha. Construído sem framework, priorizando tempo de carregamento
+                  em conexões móveis lentas.
+                </p>
+                <p class="project__impact">Uso comunitário diário · sem dependências · repositório público</p>
+                <ul class="tags">
+                  <li class="tag">HTML5</li><li class="tag">CSS3</li><li class="tag">JavaScript</li>
+                  <li class="tag">Integração de dados</li>
+                </ul>
+                <div class="project__links">
+                  <a class="project__link" href="https://rodrigodionizio.github.io/calendario-liturgico-paroquial/" target="_blank" rel="noopener">
+                    <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                    Abrir aplicação
+                  </a>
+                  <a class="project__link" href="https://github.com/rodrigodionizio/calendario-liturgico-paroquial" target="_blank" rel="noopener">
+                    <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
+                    Código
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <!-- Sorteios Bom Jesus -->
+            <article class="project reveal">
+              <div class="project__media">
+                <span class="project__status project__status--live">Em produção</span>
+                <img
+                  src="./assets/img/projects/sorteios-bomjesus.jpg"
+                  width="1280" height="800"
+                  alt="Mapa de módulos do sistema Sorteios Bom Jesus: campanha, reserva de números, confirmação, painel da organização, acompanhamento, sorteio e prestação de contas"
+                  loading="lazy" decoding="async"
+                />
+              </div>
+              <div class="project__body">
+                <p class="project__kicker">Plataforma de campanhas</p>
+                <h3>Sorteios Bom Jesus</h3>
+                <p>
+                  Sistema para campanhas, rifas e ações entre amigos: criação da campanha, reserva de números em tempo
+                  real, comprovante para o participante, painel de vendas para a organização e prestação de contas
+                  pública ao final.
+                </p>
+                <p class="project__impact">Campanhas reais · transparência pública · reserva em tempo real</p>
+                <ul class="tags">
+                  <li class="tag">Next.js</li><li class="tag">TypeScript</li><li class="tag">Vercel</li>
+                </ul>
+                <div class="project__links">
+                  <a class="project__link" href="https://sorteios-bomjesus.vercel.app" target="_blank" rel="noopener">
+                    <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                    Acessar plataforma
+                  </a>
+                  <span class="project__note">código fechado</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="more-projects reveal">
+            <p class="more-projects__label">Também no ar</p>
+            <ul class="more-projects__list">
+              <li>
+                <a href="https://avisos-eensa.vercel.app" target="_blank" rel="noopener">
+                  Avisos EENSA <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                </a>
+                <span>Quadro de avisos digital para a escola estadual — TypeScript, Vercel</span>
+              </li>
+              <li>
+                <a href="https://rodrigodionizio.github.io/PoupeMais/" target="_blank" rel="noopener">
+                  PoupeMais <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                </a>
+                <span>Acompanhamento de metas de poupança e investimento pessoal</span>
+              </li>
+              <li>
+                <a href="https://github.com/rodrigodionizio" target="_blank" rel="noopener">
+                  Repositórios no GitHub <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
+                </a>
+                <span>Projetos públicos, experimentos e material de aula</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= INFRAESTRUTURA ================= -->
+      <section class="section" id="infraestrutura">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow">Projetos de infraestrutura</p>
+            <h2 class="section-title">Redes, datacenters e conectividade entregues do projeto à operação</h2>
+            <p class="section-intro">
+              Três implantações representativas dos últimos anos, com o escopo executado e o resultado entregue ao
+              cliente. Os diagramas abaixo descrevem a topologia efetivamente implantada.
+            </p>
+          </div>
+
+          <div class="cases">
+            <article class="case reveal">
+              <div class="case__media">
+                <img
+                  src="./assets/img/projects/bionalise.jpg" width="1280" height="800"
+                  alt="Diagrama da rede da BIONALISE: link dedicado, MikroTik com firewall e VPN, switch core e três VLANs com pontos de acesso Wi-Fi"
+                  loading="lazy" decoding="async"
+                />
+              </div>
+              <div class="case__body">
+                <p class="project__kicker">Análises clínicas · 3 meses</p>
+                <h3>Wi-Fi corporativo e segmentação — BIONALISE</h3>
+                <ul class="case__facts">
+                  <li><span class="k">Desafio</span><span class="v">Rede plana, sem separação entre setores e sem cobertura Wi-Fi confiável no laboratório.</span></li>
+                  <li><span class="k">Solução</span><span class="v">Firewall MikroTik, switch core gerenciável, <strong>três VLANs</strong> (administrativo, laboratório, visitantes) e pontos de acesso corporativos.</span></li>
+                  <li><span class="k">Resultado</span><span class="v">Tráfego de visitantes isolado da rede clínica, cobertura completa e organização física de racks.</span></li>
+                </ul>
+                <ul class="tags">
+                  <li class="tag">MikroTik</li><li class="tag">VLAN</li><li class="tag">Wi-Fi corporativo</li><li class="tag">Firewall</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="case reveal">
+              <div class="case__media">
+                <img
+                  src="./assets/img/projects/italab.jpg" width="1280" height="800"
+                  alt="Diagrama da VPN site-to-site da ITALAB entre unidade matriz e unidade remota, com túnel cifrado sobre MikroTik"
+                  loading="lazy" decoding="async"
+                />
+              </div>
+              <div class="case__body">
+                <p class="project__kicker">Análises clínicas · conectividade</p>
+                <h3>VPN site-to-site — ITALAB</h3>
+                <ul class="case__facts">
+                  <li><span class="k">Desafio</span><span class="v">Unidades separadas precisando compartilhar sistema de coleta e emissão de laudos com segurança.</span></li>
+                  <li><span class="k">Solução</span><span class="v">Túnel VPN cifrado entre MikroTiks, roteamento entre as redes locais e monitoramento do enlace.</span></li>
+                  <li><span class="k">Resultado</span><span class="v">Operação contínua entre as unidades, sem exposição dos sistemas à internet pública.</span></li>
+                </ul>
+                <ul class="tags">
+                  <li class="tag">VPN</li><li class="tag">MikroTik</li><li class="tag">Roteamento</li><li class="tag">Segurança</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="case reveal">
+              <div class="case__media">
+                <img
+                  src="./assets/img/projects/vila-nova.jpg" width="1280" height="800"
+                  alt="Elevação do rack 24U do datacenter dos Laticínios Vila Nova, com patch panel, switch, MikroTik, servidor, CFTV, telefonia IP e nobreak"
+                  loading="lazy" decoding="async"
+                />
+              </div>
+              <div class="case__body">
+                <p class="project__kicker">Indústria de laticínios · 4 meses</p>
+                <h3>Datacenter completo — Laticínios Vila Nova</h3>
+                <ul class="case__facts">
+                  <li><span class="k">Desafio</span><span class="v">Indústria sem infraestrutura formal: equipamentos dispersos, cabeamento improvisado, sem CFTV nem telefonia integrada.</span></li>
+                  <li><span class="k">Solução</span><span class="v">Rack 24U organizado, <strong>cabeamento certificado Furukawa</strong>, servidor de arquivos, CFTV e telefonia IP integrados.</span></li>
+                  <li><span class="k">Resultado</span><span class="v">Infraestrutura documentada e manutenível, com pontos de rede identificados em todos os setores.</span></li>
+                </ul>
+                <ul class="tags">
+                  <li class="tag">Datacenter</li><li class="tag">Furukawa</li><li class="tag">CFTV</li><li class="tag">Telefonia IP</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= STACK ================= -->
+      <section class="section section--alt" id="stack">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow">Stack técnico</p>
+            <h2 class="section-title">O que uso, e com que profundidade</h2>
+            <p class="section-intro">
+              Sem barras de porcentagem: cada tecnologia aparece no nível em que eu realmente a entrego hoje.
+              <strong>Domínio</strong> significa em produção sob minha responsabilidade; <strong>sólido</strong>,
+              usado com autonomia; <strong>em evolução</strong>, em aprofundamento ativo.
+            </p>
+          </div>
+
+          <div class="stack">
+            <article class="stack-group reveal">
+              <div class="stack-group__head">
+                <svg class="icon" aria-hidden="true"><use href="#i-server" /></svg>
+                <h3>Infraestrutura e redes</h3>
+              </div>
+              <div class="stack-level stack-level--core">
+                <span class="stack-level__label">Domínio</span>
+                <ul class="tags">
+                  <li class="tag">MikroTik RouterOS</li><li class="tag">Redes LAN/WLAN</li><li class="tag">VLAN</li>
+                  <li class="tag">Windows Server</li><li class="tag">Active Directory</li>
+                  <li class="tag">Cabeamento estruturado</li><li class="tag">VPN</li><li class="tag">Firewall</li>
+                </ul>
+              </div>
+              <div class="stack-level stack-level--solid">
+                <span class="stack-level__label">Sólido</span>
+                <ul class="tags">
+                  <li class="tag">Segurança da informação</li><li class="tag">CFTV</li><li class="tag">Telefonia IP</li>
+                  <li class="tag">Backup e continuidade</li><li class="tag">Linux (servidor)</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="stack-group reveal">
+              <div class="stack-group__head">
+                <svg class="icon" aria-hidden="true"><use href="#i-code" /></svg>
+                <h3>Desenvolvimento</h3>
+              </div>
+              <div class="stack-level stack-level--core">
+                <span class="stack-level__label">Domínio</span>
+                <ul class="tags">
+                  <li class="tag">JavaScript</li><li class="tag">HTML5</li><li class="tag">CSS3</li>
+                  <li class="tag">React</li><li class="tag">Next.js</li><li class="tag">Git</li>
+                </ul>
+              </div>
+              <div class="stack-level stack-level--solid">
+                <span class="stack-level__label">Sólido</span>
+                <ul class="tags">
+                  <li class="tag">TypeScript</li><li class="tag">Node.js</li><li class="tag">Tailwind</li>
+                  <li class="tag">Supabase</li><li class="tag">Vercel</li><li class="tag">REST APIs</li>
+                </ul>
+              </div>
+              <div class="stack-level stack-level--growing">
+                <span class="stack-level__label">Em evolução</span>
+                <ul class="tags">
+                  <li class="tag">Testes automatizados</li><li class="tag">CI/CD</li><li class="tag">Docker</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="stack-group reveal">
+              <div class="stack-group__head">
+                <svg class="icon" aria-hidden="true"><use href="#i-db" /></svg>
+                <h3>Dados e sistemas</h3>
+              </div>
+              <div class="stack-level stack-level--core">
+                <span class="stack-level__label">Domínio</span>
+                <ul class="tags">
+                  <li class="tag">SQL</li><li class="tag">SQL Server</li><li class="tag">PostgreSQL</li>
+                  <li class="tag">Modelagem relacional</li><li class="tag">Excel avançado</li>
+                </ul>
+              </div>
+              <div class="stack-level stack-level--solid">
+                <span class="stack-level__label">Sólido</span>
+                <ul class="tags">
+                  <li class="tag">ERP Alterdata</li><li class="tag">TOTVS RM</li>
+                  <li class="tag">Relatórios gerenciais</li><li class="tag">Migração de dados</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= EXPERIÊNCIA ================= -->
+      <section class="section" id="experiencia">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow">Trajetória</p>
+            <h2 class="section-title">Experiência profissional</h2>
+          </div>
+
+          <div class="timeline">
+            <article class="tl-item tl-item--current reveal">
+              <p class="tl-when"><b>2002 — atual</b>Itabirinha/MG</p>
+              <div class="tl-body">
+                <h3>Chefe do Departamento de TI</h3>
+                <p class="tl-org">Prefeitura Municipal de Itabirinha</p>
+                <p>
+                  Responsável por toda a infraestrutura de tecnologia do município: rede, servidores, bancos de dados,
+                  sistemas corporativos, segurança e suporte a todas as secretarias. Gestão de equipe, orçamento e
+                  fornecedores.
+                </p>
+                <ul class="tl-wins">
+                  <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg><span>Redução de <strong>60% nos custos operacionais</strong> de TI após projeto de modernização</span></li>
+                  <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg><span>Mais de <strong>200 servidores públicos capacitados</strong> em sistemas corporativos</span></li>
+                  <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg><span>Administração de SQL Server e PostgreSQL, Windows Server e Active Directory</span></li>
+                  <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg><span>Desenvolvimento de soluções web institucionais internas</span></li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="tl-item tl-item--current reveal">
+              <p class="tl-when"><b>2023 — atual</b>Minas Gerais</p>
+              <div class="tl-body">
+                <h3>Professor PEB I — Informática</h3>
+                <p class="tl-org">Governo do Estado de Minas Gerais</p>
+                <p>
+                  Docência em Curso Técnico em Informática com ênfase em Internet: Lógica de Programação, Planilhas
+                  Eletrônicas e Informática para Internet. Elaboração de planos de aula, material didático e avaliação
+                  por projeto prático.
+                </p>
+                <ul class="tl-wins">
+                  <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg><span>Mais de <strong>100 alunos formados</strong> com preparação para o mercado</span></li>
+                  <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg><span>Metodologias ativas e avaliação por entrega de projeto real</span></li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="tl-item reveal">
+              <p class="tl-when"><b>2013 — 2024</b>Leste de Minas</p>
+              <div class="tl-body">
+                <h3>Consultor de Infraestrutura de TI</h3>
+                <p class="tl-org">SERTEC, Laticínios Vila Nova, BIONALISE, ITALAB e outros</p>
+                <p>
+                  Projetos de rede corporativa, servidores Windows, roteadores MikroTik, VPN e firewall. Suporte ao ERP
+                  Alterdata nos módulos de RH, Tributos e Contabilidade. Atendimento remoto e presencial.
+                </p>
+                <ul class="tl-wins">
+                  <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg><span>Datacenter 24U completo com cabeamento certificado Furukawa</span></li>
+                  <li><svg class="icon" aria-hidden="true"><use href="#i-check" /></svg><span>VPN site-to-site interligando unidades de laboratório clínico</span></li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="tl-item reveal">
+              <p class="tl-when"><b>2018 — 2020</b>São José do Divino/MG</p>
+              <div class="tl-body">
+                <h3>Supervisor de Informática</h3>
+                <p class="tl-org">Prefeitura Municipal de São José do Divino</p>
+                <p>
+                  Administração da infraestrutura municipal de TI, suporte a todos os setores administrativos e gestão
+                  de redes, servidores e sistemas corporativos.
+                </p>
+              </div>
+            </article>
+
+            <article class="tl-item reveal">
+              <p class="tl-when"><b>2013 — 2014</b>Minas Gerais</p>
+              <div class="tl-body">
+                <h3>Professor PEB I — Informática</h3>
+                <p class="tl-org">Governo do Estado de Minas Gerais</p>
+                <p>
+                  Primeira experiência docente em curso técnico: informática básica e aplicada, fundamentos de hardware,
+                  sistemas operacionais e aplicativos de escritório. Gestão de laboratório.
+                </p>
+              </div>
+            </article>
+
+            <article class="tl-item reveal">
+              <p class="tl-when"><b>2008</b>Leste de Minas</p>
+              <div class="tl-body">
+                <h3>Analista de Suporte</h3>
+                <p class="tl-org">TOTVS S.A. — Unidade Leste de Minas</p>
+                <p>
+                  Suporte técnico a clientes do sistema RM (Gestão Educacional), desenvolvimento de consultas SQL
+                  complexas, relatórios customizados e diagnóstico de problemas em banco de dados.
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= FORMAÇÃO ================= -->
+      <section class="section section--alt" id="formacao">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow">Formação e credenciais</p>
+            <h2 class="section-title">Base formal</h2>
+          </div>
+
+          <div class="creds">
+            <article class="cred reveal">
+              <p class="cred__type">Certificação</p>
+              <h3>Cabeamento Estruturado — Furukawa</h3>
+              <p>Projeto e certificação de infraestrutura de cabeamento para redes corporativas.</p>
+            </article>
+            <article class="cred reveal">
+              <p class="cred__type">Habilitação docente</p>
+              <h3>Professor PEB I — Informática</h3>
+              <p>Governo do Estado de Minas Gerais, ensino técnico de nível médio.</p>
+            </article>
+            <article class="cred reveal">
+              <p class="cred__type">Idiomas</p>
+              <h3>Português nativo · Inglês técnico</h3>
+              <p>Leitura fluente de documentação técnica e especificações em inglês.</p>
+            </article>
+            <article class="cred reveal">
+              <p class="cred__type">Localização</p>
+              <h3>Itabirinha, Minas Gerais</h3>
+              <p>Disponível para trabalho remoto, híbrido ou presencial na região.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- ================= CONTATO ================= -->
+      <section class="section" id="contato">
+        <div class="wrap">
+          <div class="section-head reveal">
+            <p class="eyebrow">Contato</p>
+            <h2 class="section-title">Vamos conversar</h2>
+            <p class="section-intro">
+              Estou aberto a oportunidades em infraestrutura de TI, desenvolvimento full stack ou posições que combinem
+              as duas. Respondo em até um dia útil.
+            </p>
+          </div>
+
+          <div class="contact-grid">
+            <ul class="channels reveal">
+              <li>
+                <a class="channel" href="mailto:rodrigo.dionizio@gmail.com">
+                  <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+                  <span><span class="channel__label">E-mail</span><span class="channel__value">rodrigo.dionizio@gmail.com</span></span>
+                </a>
+              </li>
+              <li>
+                <a class="channel" href="https://wa.me/5533988203127" target="_blank" rel="noopener">
+                  <svg class="icon" aria-hidden="true"><use href="#i-whats" /></svg>
+                  <span><span class="channel__label">WhatsApp</span><span class="channel__value">(33) 98820-3127</span></span>
+                </a>
+              </li>
+              <li>
+                <a class="channel" href="https://www.linkedin.com/in/rodrigodionizio" target="_blank" rel="noopener">
+                  <svg class="icon" aria-hidden="true"><use href="#i-linkedin" /></svg>
+                  <span><span class="channel__label">LinkedIn</span><span class="channel__value">in/rodrigodionizio</span></span>
+                </a>
+              </li>
+              <li>
+                <a class="channel" href="https://github.com/rodrigodionizio" target="_blank" rel="noopener">
+                  <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
+                  <span><span class="channel__label">GitHub</span><span class="channel__value">github.com/rodrigodionizio</span></span>
+                </a>
+              </li>
+              <li>
+                <span class="channel">
+                  <svg class="icon" aria-hidden="true"><use href="#i-pin" /></svg>
+                  <span><span class="channel__label">Localização</span><span class="channel__value">Itabirinha, Minas Gerais — Brasil</span></span>
+                </span>
+              </li>
+            </ul>
+
+            <div class="form-card reveal">
+              <h3>Envie uma mensagem</h3>
+              <p>Campos marcados com <span aria-hidden="true">*</span><span class="sr-only">asterisco</span> são obrigatórios.</p>
+
+              <form id="contact-form" novalidate>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="name">Nome <span class="req" aria-hidden="true">*</span></label>
+                    <input type="text" id="name" name="name" autocomplete="name" required aria-describedby="name-error" />
+                    <span class="field__error" id="name-error"></span>
+                  </div>
+                  <div class="field">
+                    <label for="email">E-mail <span class="req" aria-hidden="true">*</span></label>
+                    <input type="email" id="email" name="email" autocomplete="email" required aria-describedby="email-error" />
+                    <span class="field__error" id="email-error"></span>
+                  </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="message" class="form-label">Mensagem *</label>
-                  <textarea
-                    id="message"
-                    name="message"
-                    class="form-textarea"
-                    placeholder="Digite sua mensagem aqui..."
-                    required
-                  ></textarea>
+                <div class="form-row">
+                  <div class="field">
+                    <label for="phone">Telefone</label>
+                    <input type="tel" id="phone" name="phone" autocomplete="tel" placeholder="(00) 00000-0000" />
+                  </div>
+                  <div class="field">
+                    <label for="subject">Assunto</label>
+                    <input type="text" id="subject" name="subject" placeholder="Oportunidade, projeto, consultoria…" />
+                  </div>
                 </div>
 
-                <button
-                  type="submit"
-                  class="btn btn-primary"
-                  style="width: 100%"
-                >
-                  Enviar Mensagem
+                <div class="field">
+                  <label for="message">Mensagem <span class="req" aria-hidden="true">*</span></label>
+                  <textarea id="message" name="message" required aria-describedby="message-error"></textarea>
+                  <span class="field__error" id="message-error"></span>
+                </div>
+
+                <div class="hp" aria-hidden="true">
+                  <label for="company">Não preencha este campo</label>
+                  <input type="text" id="company" name="company" tabindex="-1" autocomplete="off" />
+                </div>
+
+                <button class="btn btn--primary btn--block" type="submit" id="contact-submit">
+                  <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+                  <span data-label>Enviar mensagem</span>
                 </button>
+
+                <div class="form-status" id="form-status" aria-live="polite"></div>
               </form>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </main>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-      <div class="container">
-        <div class="footer-content">
-          <div class="footer-social">
-            <a
-              href="https://www.linkedin.com/in/rodrigodionizio"
-              target="_blank"
-              class="social-link"
-              aria-label="LinkedIn"
-              >💼</a
-            >
-            <a
-              href="https://github.com/rodrigodionizio"
-              target="_blank"
-              class="social-link"
-              aria-label="GitHub"
-              >💻</a
-            >
-            <a
-              href="https://www.instagram.com/rodrigodionizio"
-              target="_blank"
-              class="social-link"
-              aria-label="Instagram"
-              >📸</a
-            >
-            <a
-              href="https://wa.me/5533988203127"
-              target="_blank"
-              class="social-link"
-              aria-label="WhatsApp"
-              >📱</a
-            >
-            <a
-              href="mailto:rodrigo.dionizio@gmail.com"
-              class="social-link"
-              aria-label="Email"
-              >📧</a
-            >
+    <!-- ================= RODAPÉ ================= -->
+    <footer class="site-footer">
+      <div class="wrap">
+        <div class="footer-top">
+          <div class="footer-pitch">
+            <a class="brandmark" href="#home">
+              <span class="brandmark__mark" aria-hidden="true">R<span>D</span></span>
+              <span class="brandmark__text">Rodrigo Dionizio</span>
+            </a>
+            <p>
+              Infraestrutura de TI e desenvolvimento full stack em Minas Gerais. Disponível para oportunidades remotas,
+              híbridas e presenciais.
+            </p>
           </div>
 
-          <p class="footer-text">
-            © <span id="current-year">2025</span> Rodrigo Dionizio. Todos os
-            direitos reservados.
-          </p>
+          <ul class="social">
+            <li>
+              <a href="https://www.linkedin.com/in/rodrigodionizio" target="_blank" rel="noopener" aria-label="LinkedIn de Rodrigo Dionizio">
+                <svg class="icon" aria-hidden="true"><use href="#i-linkedin" /></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/rodrigodionizio" target="_blank" rel="noopener" aria-label="GitHub de Rodrigo Dionizio">
+                <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://wa.me/5533988203127" target="_blank" rel="noopener" aria-label="WhatsApp de Rodrigo Dionizio">
+                <svg class="icon" aria-hidden="true"><use href="#i-whats" /></svg>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:rodrigo.dionizio@gmail.com" aria-label="Enviar e-mail para Rodrigo Dionizio">
+                <svg class="icon" aria-hidden="true"><use href="#i-mail" /></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.instagram.com/rodrigodionizio" target="_blank" rel="noopener" aria-label="Instagram de Rodrigo Dionizio">
+                <svg class="icon" aria-hidden="true"><use href="#i-instagram" /></svg>
+              </a>
+            </li>
+          </ul>
+        </div>
 
-          <p class="footer-text">
-            Professor de Informática | Desenvolvedor Full Stack | Especialista
-            em Infraestrutura
-          </p>
+        <div class="footer-bottom">
+          <span>© <span data-current-year>2026</span> Rodrigo Dionizio</span>
+          <span>Itabirinha, Minas Gerais — Brasil</span>
+          <span>HTML, CSS e JavaScript — sem framework</span>
         </div>
       </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/main.js" defer></script>
   </body>
 </html>

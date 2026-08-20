@@ -1,391 +1,91 @@
-# 🚀 Portfólio Rodrigo Dionizio
+# Portfólio — Rodrigo Dionizio
 
-![Status](https://img.shields.io/badge/status-active-success.svg)
-![License](https://img.shields.io/badge/license-MIT-blue.svg)
+[![Site](https://img.shields.io/badge/site-online-0B4F5A)](https://rodrigodionizio.github.io/meuportifolio/)
+[![Licença](https://img.shields.io/badge/licen%C3%A7a-MIT-A8501F)](./LICENSE)
+[![Sem framework](https://img.shields.io/badge/stack-HTML%20%C2%B7%20CSS%20%C2%B7%20JS-1F6B4B)](#stack)
 
-> Portfólio profissional de Rodrigo Dionizio - Professor de Informática e Desenvolvedor Full Stack
+Portfólio profissional de **Rodrigo Dionizio** — infraestrutura de TI, desenvolvimento full stack e docência técnica.
 
----
+**Acesse:** <https://rodrigodionizio.github.io/meuportifolio/> · **English:** <https://rodrigodionizio.github.io/meuportifolio/en/>
 
-## 📋 Sobre
-
-Portfólio pessoal desenvolvido com HTML5, CSS3 e JavaScript vanilla, apresentando experiência profissional, projetos e habilidades técnicas.
-
-**Características:**
-
-- ✅ Design responsivo mobile-first
-- ✅ Animações suaves e modernas
-- ✅ Performance otimizada (Lighthouse 90+)
-- ✅ SEO completo
-- ✅ Acessibilidade WCAG AA
-- ✅ Formulário de contato funcional
-- ✅ Hospedagem GitHub Pages
+![Prévia do portfólio](./docs/assets/og/og-image.jpg)
 
 ---
 
-## 🛠️ Tecnologias
+## O que o site apresenta
 
-- **HTML5** - Estrutura semântica
-- **CSS3** - Estilização e animações
-- **JavaScript** - Interatividade e funcionalidades
-- **Git** - Controle de versão
-- **GitHub Pages** - Hospedagem
+| Seção | Conteúdo |
+| --- | --- |
+| Especialidades | Duas frentes principais (infraestrutura e desenvolvimento) e a competência de sustentação (docência e gestão) |
+| Projetos em produção | Sacristia Digital, OSCRM, Calendário Litúrgico Paroquial e Sorteios Bom Jesus |
+| Infraestrutura | Estudos de caso com desafio, solução e resultado, e a topologia implantada |
+| Stack | Tecnologias agrupadas por profundidade real de uso, sem porcentagens |
+| Experiência | Trajetória de 2002 até hoje, com resultados quantificados |
+| Contato | Canais diretos e formulário |
 
----
+## Stack
 
-## 📁 Estrutura do Projeto
+Sem framework, sem build, sem dependências em tempo de execução — o site é servido como está.
+
+- **HTML5** semântico, com dados estruturados `schema.org` (`Person`, `ProfilePage`, `ItemList`)
+- **CSS3** com custom properties, tema claro e escuro, e layout em grid/flex
+- **JavaScript** ES5 sem bibliotecas, em módulo IIFE
+- **GitHub Pages** servindo a pasta `/docs`
+
+### Decisões técnicas
+
+- **Nenhum framework.** O site é conteúdo estático; um bundler só adicionaria peso e manutenção.
+- **Imagens em WebP com fallback JPEG**, dimensões declaradas e `loading="lazy"` — a primeira tela pesa menos de 400 KB.
+- **Ícones em SVG inline** (sprite `<symbol>` + `<use>`), sem emojis: leitores de tela anunciam o rótulo correto.
+- **Tema escuro por token**, respeitando `prefers-color-scheme` e permitindo escolha explícita persistida.
+- **O formulário nunca simula sucesso.** Sem chave de envio configurada, ele entrega a mensagem por e-mail ou WhatsApp já preenchidos.
+
+## Estrutura
 
 ```
-portfolio-rodrigo/
-├── docs/
-│   ├── index.html           # Página principal
-│   ├── assets/
-│   │   ├── css/
-│   │   │   └── style.css    # Estilos principais
-│   │   ├── js/
-│   │   │   └── main.js      # JavaScript principal
-│   │   └── imgs/
-│   │       ├── profile-rodrigo-dionizio.png  # Foto profissional (TODO)
-│   │       ├── projects/    # Screenshots dos projetos (TODO)
-│   │       │   ├── sacristia-digital.png
-│   │       │   ├── poupemais.png
-│   │       │   ├── calendario-liturgico.png
-│   │       │   ├── bionalise.jpg
-│   │       │   ├── italab.jpg
-│   │       │   └── vila-nova.jpg
-│   │       └── favicon.png  # Ícone do site (opcional)
-├── README.md                # Este arquivo
-└── LICENSE                  # Licença MIT
+.
+├── docs/                          # raiz publicada no GitHub Pages
+│   ├── index.html                 # versão pt-BR
+│   ├── en/index.html              # versão em inglês
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   ├── site.webmanifest
+│   └── assets/
+│       ├── css/style.css
+│       ├── js/main.js
+│       ├── img/                   # imagens otimizadas (WebP + JPEG)
+│       ├── icons/                 # favicon e ícones de aplicativo
+│       ├── og/                    # imagem de compartilhamento 1200×630
+│       └── cv/                    # currículo em PDF
+├── .github/workflows/qualidade.yml
+├── MANUTENCAO.md                  # como atualizar o conteúdo
+├── LICENSE
+└── README.md
 ```
 
----
-
-## 🚀 Como Usar
-
-### 1. Clone o repositório
+## Rodar localmente
 
 ```bash
-git clone https://github.com/rodrigodionizio/portfolio.git
-cd portfolio
+git clone https://github.com/rodrigodionizio/meuportifolio.git
+cd meuportifolio
+python3 -m http.server 8000 --directory docs
+# abra http://localhost:8000
 ```
 
-### 2. Abra localmente
+Não use `file://`: o `srcset` e o `manifest` exigem um servidor HTTP.
 
-```bash
-# Abra o arquivo index.html no navegador
-# Ou use Live Server no VS Code
-```
+## Manutenção
 
-### 3. Personalize o conteúdo
+Como trocar fotos, atualizar projetos, publicar o currículo e ativar o envio do formulário está em **[MANUTENCAO.md](./MANUTENCAO.md)**.
 
-- Edite `docs/index.html` para atualizar informações
-- Modifique `docs/assets/css/style.css` para ajustar estilos
-- Personalize `docs/assets/js/main.js` para funcionalidades
+## Qualidade
 
----
+O workflow `.github/workflows/qualidade.yml` roda a cada push e verifica HTML válido, links quebrados e o orçamento de performance no Lighthouse.
 
-## 📸 Adicionar Imagens (Próximos Passos)
+## Licença
 
-### Foto Profissional
-
-1. **Prepare sua foto:**
-   - Use o prompt fornecido em `/PROMPT_FOTO_PROFISSIONAL.md`
-   - Processe com Remini AI, Photoroom ou Fotor
-   - Salve como `profile-rodrigo-dionizio.png`
-
-2. **Adicione ao projeto:**
-
-   ```bash
-   # Copie a foto para:
-   docs/assets/imgs/profile-rodrigo-dionizio.png
-   ```
-
-3. **Atualize o HTML:**
-   ```html
-   <!-- Remova o placeholder e descomente: -->
-   <img
-     src="./assets/imgs/profile-rodrigo-dionizio.png"
-     alt="Rodrigo Dionizio"
-     class="hero-image"
-   />
-   ```
-
-### Screenshots dos Projetos
-
-1. **Capture screenshots:**
-   - Sacristia Digital: https://sacristia-digital-saas-core.vercel.app
-   - PoupeMais: Repositório GitHub
-   - Calendário Litúrgico: Repositório GitHub
-   - Projetos de infraestrutura: Fotos reais (se disponíveis)
-
-2. **Otimize as imagens:**
-   - Tamanho recomendado: 800x600px
-   - Formato: PNG ou JPG
-   - Compressão: TinyPNG ou similar
-
-3. **Adicione ao projeto:**
-
-   ```bash
-   docs/assets/imgs/projects/
-   ├── sacristia-digital.png
-   ├── poupemais.png
-   ├── calendario-liturgico.png
-   ├── bionalise.jpg
-   ├── italab.jpg
-   └── vila-nova.jpg
-   ```
-
-4. **Atualize o HTML:**
-   ```html
-   <!-- Para cada projeto, descomente e ajuste: -->
-   <img
-     src="./assets/imgs/projects/sacristia-digital.png"
-     alt="Sacristia Digital"
-     class="project-image"
-   />
-   ```
+[MIT](./LICENSE) — o código é livre. O conteúdo textual, as imagens e a identidade pessoal não são.
 
 ---
 
-## 🌐 Deploy no GitHub Pages
-
-### Passo 1: Crie o repositório
-
-```bash
-# Crie um novo repositório no GitHub chamado:
-# portfolio ou rodrigodionizio.github.io
-
-# Inicialize o Git
-git init
-git add .
-git commit -m "Initial commit: Portfolio Rodrigo Dionizio"
-git branch -M main
-git remote add origin https://github.com/rodrigodionizio/portfolio.git
-git push -u origin main
-```
-
-### Passo 2: Configure GitHub Pages
-
-1. Acesse: `Settings` → `Pages`
-2. Em **Source**, selecione: `main` branch e `/docs` folder
-3. Clique em **Save**
-4. Aguarde 1-2 minutos
-
-### Passo 3: Acesse seu portfólio
-
-```
-https://rodrigodionizio.github.io/portfolio
-```
-
-ou (se nomeou como `rodrigodionizio.github.io`):
-
-```
-https://rodrigodionizio.github.io
-```
-
----
-
-## ⚙️ Configuração do Formulário de Contato
-
-O formulário está pronto, mas para funcionar completamente, configure o EmailJS:
-
-### 1. Crie uma conta gratuita
-
-- Acesse: https://www.emailjs.com
-- Crie uma conta gratuita
-
-### 2. Configure o serviço
-
-- Adicione um email service (Gmail, Outlook, etc.)
-- Crie um template de email
-- Copie os IDs
-
-### 3. Atualize o JavaScript
-
-Em `docs/assets/js/main.js`, linha ~150:
-
-```javascript
-// Substitua pelos seus IDs:
-const serviceId = "SEU_SERVICE_ID";
-const templateId = "SEU_TEMPLATE_ID";
-const publicKey = "SUA_PUBLIC_KEY";
-```
-
-### 4. Descomente o código EmailJS
-
-```javascript
-// Linha ~165, descomente:
-emailjs
-  .send(
-    serviceId,
-    templateId,
-    {
-      from_name: data.name,
-      from_email: data.email,
-      phone: data.phone,
-      subject: data.subject,
-      message: data.message,
-      to_email: "rodrigo.dionizio@gmail.com",
-    },
-    publicKey,
-  )
-  .then((response) => resolve(response))
-  .catch((error) => reject(error));
-```
-
----
-
-## 🎨 Personalização
-
-### Cores do Tema
-
-Em `docs/assets/css/style.css`, altere as variáveis:
-
-```css
-:root {
-  --primary: #2c5f8d; /* Cor principal */
-  --primary-light: #5b9bd5; /* Variação clara */
-  --primary-dark: #1f4788; /* Variação escura */
-  --accent: #0066cc; /* Cor de destaque */
-  /* ... outras cores ... */
-}
-```
-
-### Conteúdo
-
-Edite `docs/index.html` para atualizar:
-
-- Textos e descrições
-- Links de projetos
-- Informações de contato
-- Habilidades e porcentagens
-
----
-
-## 🔍 SEO
-
-### Meta Tags Configuradas
-
-- ✅ Título otimizado
-- ✅ Descrição com palavras-chave
-- ✅ Open Graph para redes sociais
-- ✅ Tags de autor e keywords
-
-### Próximos Passos
-
-1. **Crie sitemap.xml:**
-
-   ```xml
-   <?xml version="1.0" encoding="UTF-8"?>
-   <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-     <url>
-       <loc>https://rodrigodionizio.github.io/portfolio/</loc>
-       <lastmod>2025-01-26</lastmod>
-       <priority>1.0</priority>
-     </url>
-   </urlset>
-   ```
-
-2. **Crie robots.txt:**
-
-   ```
-   User-agent: *
-   Allow: /
-   Sitemap: https://rodrigodionizio.github.io/portfolio/sitemap.xml
-   ```
-
-3. **Registre no Google Search Console**
-
----
-
-## 📊 Performance
-
-### Métricas Esperadas
-
-- **Lighthouse Performance:** 95+
-- **Lighthouse Accessibility:** 100
-- **Lighthouse Best Practices:** 95+
-- **Lighthouse SEO:** 100
-
-### Otimizações Implementadas
-
-- ✅ CSS minificado e otimizado
-- ✅ JavaScript eficiente
-- ✅ Lazy loading de imagens (após adicionar)
-- ✅ Fontes otimizadas (Google Fonts)
-- ✅ Animações GPU-accelerated
-
----
-
-## 🐛 Troubleshooting
-
-### Problema: GitHub Pages não atualiza
-
-**Solução:**
-
-- Aguarde 5-10 minutos
-- Limpe cache do navegador (Ctrl + Shift + R)
-- Verifique se selecionou `/docs` folder
-
-### Problema: Estilos não carregam
-
-**Solução:**
-
-- Verifique caminhos relativos no HTML
-- Confirme estrutura de pastas correta
-- Teste localmente primeiro
-
-### Problema: Formulário não envia
-
-**Solução:**
-
-- Configure EmailJS corretamente
-- Verifique console do navegador (F12)
-- Teste com email válido
-
----
-
-## 📝 Checklist de Lançamento
-
-- [ ] Adicionar foto profissional
-- [ ] Adicionar screenshots dos projetos
-- [ ] Configurar EmailJS
-- [ ] Fazer push para GitHub
-- [ ] Ativar GitHub Pages
-- [ ] Testar em múltiplos dispositivos
-- [ ] Testar em múltiplos navegadores
-- [ ] Validar formulário de contato
-- [ ] Verificar todos os links
-- [ ] Criar sitemap.xml e robots.txt
-- [ ] Registrar no Google Search Console
-- [ ] Compartilhar nas redes sociais
-
----
-
-## 📞 Contato
-
-**Rodrigo Dionizio**
-
-- Email: rodrigo.dionizio@gmail.com
-- LinkedIn: [linkedin.com/in/rodrigodionizio](https://www.linkedin.com/in/rodrigodionizio)
-- GitHub: [github.com/rodrigodionizio](https://github.com/rodrigodionizio)
-- WhatsApp: (33) 98820-3127
-- Instagram: [@rodrigodionizio](https://www.instagram.com/rodrigodionizio)
-
----
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Consulte o arquivo `LICENSE` para mais detalhes.
-
----
-
-## 🙏 Agradecimentos
-
-Desenvolvido com ❤️ por Rodrigo Dionizio
-
-**Stack:** HTML5 | CSS3 | JavaScript  
-**Design:** Clean & Professional  
-**Hospedagem:** GitHub Pages
-
-_Última atualização: Janeiro 2025_
+**Contato:** [rodrigo.dionizio@gmail.com](mailto:rodrigo.dionizio@gmail.com) · [LinkedIn](https://www.linkedin.com/in/rodrigodionizio) · [WhatsApp](https://wa.me/5533988203127)

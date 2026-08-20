@@ -1,412 +1,336 @@
-// ===================================
-// PORTFOLIO RODRIGO DIONIZIO
-// JavaScript Core Functions
-// ===================================
+/* ==========================================================================
+   Portfólio Rodrigo Dionizio
+   ========================================================================== */
+(function () {
+  "use strict";
 
-// === GLOBAL VARIABLES ===
-let lastScrollTop = 0;
-const header = document.querySelector(".header");
-const menuToggle = document.querySelector(".menu-toggle");
-const navMenu = document.querySelector(".nav-menu");
-const navLinks = document.querySelectorAll(".nav-link");
+  /* ------------------------------------------------------------------------
+     CONFIGURAÇÃO DO FORMULÁRIO DE CONTATO
+     ------------------------------------------------------------------------
+     Para o formulário enviar de verdade, crie uma chave gratuita em
+     https://web3forms.com (leva 1 minuto, sem cadastro: informe o e-mail de
+     destino e a chave chega por e-mail) e cole-a em ACCESS_KEY abaixo.
 
-// === INIT ===
-document.addEventListener("DOMContentLoaded", function () {
-  initScrollEffects();
-  initMobileMenu();
-  initActiveNavigation();
-  initSkillBars();
-  initFormValidation();
-  initSmoothScroll();
-  initAnimationsOnScroll();
-});
+     Enquanto ACCESS_KEY estiver vazia, o formulário NÃO finge que enviou:
+     ele valida os dados e abre o e-mail ou o WhatsApp já preenchidos, para
+     que nenhuma mensagem se perca.
+     ---------------------------------------------------------------------- */
+  var CONTACT = {
+    ACCESS_KEY: "",
+    ENDPOINT: "https://api.web3forms.com/submit",
+    EMAIL: "rodrigo.dionizio@gmail.com",
+    WHATSAPP: "5533988203127",
+    SUBJECT_PREFIX: "[Portfólio]"
+  };
 
-// === HEADER SCROLL BEHAVIOR ===
-function initScrollEffects() {
-  window.addEventListener("scroll", function () {
-    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  var CAREER_START_YEAR = 2002;
 
-    // Hide/Show header on scroll
-    if (scrollTop > lastScrollTop && scrollTop > 100) {
-      header.classList.add("hidden");
-    } else {
-      header.classList.remove("hidden");
-    }
+  /* ------------------------------------------------------------------------
+     Utilidades
+     ---------------------------------------------------------------------- */
+  function $(sel, scope) { return (scope || document).querySelector(sel); }
+  function $$(sel, scope) { return Array.prototype.slice.call((scope || document).querySelectorAll(sel)); }
 
-    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
-  });
-}
-
-// === MOBILE MENU ===
-function initMobileMenu() {
-  if (!menuToggle || !navMenu) return;
-
-  menuToggle.addEventListener("click", function () {
-    navMenu.classList.toggle("active");
-
-    // Animate hamburger icon
-    const spans = menuToggle.querySelectorAll("span");
-    spans[0].style.transform = navMenu.classList.contains("active")
-      ? "rotate(-45deg) translate(-5px, 6px)"
-      : "none";
-    spans[1].style.opacity = navMenu.classList.contains("active") ? "0" : "1";
-    spans[2].style.transform = navMenu.classList.contains("active")
-      ? "rotate(45deg) translate(-5px, -6px)"
-      : "none";
-  });
-
-  // Close menu on link click
-  navLinks.forEach((link) => {
-    link.addEventListener("click", function () {
-      if (window.innerWidth <= 768) {
-        navMenu.classList.remove("active");
-        const spans = menuToggle.querySelectorAll("span");
-        spans[0].style.transform = "none";
-        spans[1].style.opacity = "1";
-        spans[2].style.transform = "none";
-      }
-    });
-  });
-}
-
-// === ACTIVE NAVIGATION ===
-function initActiveNavigation() {
-  const sections = document.querySelectorAll("section[id]");
-
-  window.addEventListener("scroll", function () {
-    const scrollY = window.pageYOffset;
-
-    sections.forEach((section) => {
-      const sectionHeight = section.offsetHeight;
-      const sectionTop = section.offsetTop - 100;
-      const sectionId = section.getAttribute("id");
-
-      if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-        navLinks.forEach((link) => {
-          link.classList.remove("active");
-          if (link.getAttribute("href") === `#${sectionId}`) {
-            link.classList.add("active");
-          }
-        });
-      }
-    });
-  });
-}
-
-// === SMOOTH SCROLL ===
-function initSmoothScroll() {
-  navLinks.forEach((link) => {
-    link.addEventListener("click", function (e) {
-      const href = this.getAttribute("href");
-
-      if (href.startsWith("#")) {
-        e.preventDefault();
-        const targetId = href.substring(1);
-        const targetSection = document.getElementById(targetId);
-
-        if (targetSection) {
-          const offsetTop = targetSection.offsetTop - 80;
-          window.scrollTo({
-            top: offsetTop,
-            behavior: "smooth",
-          });
-        }
-      }
-    });
-  });
-}
-
-// === SKILL BARS ANIMATION ===
-function initSkillBars() {
-  const skillBars = document.querySelectorAll(".skill-progress");
-  let animated = false;
-
-  const animateSkills = () => {
-    if (animated) return;
-
-    const skillsSection = document.getElementById("skills");
-    if (!skillsSection) return;
-
-    const rect = skillsSection.getBoundingClientRect();
-    const isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
-
-    if (isVisible) {
-      skillBars.forEach((bar) => {
-        const width = bar.getAttribute("data-width");
-        bar.style.setProperty("--skill-width", width);
-        bar.classList.add("animate");
+  /** Agrupa trabalho de scroll num único quadro de animação. */
+  function onScrollFrame(fn) {
+    var ticking = false;
+    function handler() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () {
+        fn();
+        ticking = false;
       });
-      animated = true;
     }
-  };
+    window.addEventListener("scroll", handler, { passive: true });
+    fn();
+  }
 
-  window.addEventListener("scroll", animateSkills);
-  animateSkills(); // Check on load
-}
+  /* ------------------------------------------------------------------------
+     Tema (claro / escuro)
+     ---------------------------------------------------------------------- */
+  function initTheme() {
+    var root = document.documentElement;
+    var toggle = $("[data-theme-toggle]");
+    if (!toggle) return;
 
-// === ANIMATIONS ON SCROLL ===
-function initAnimationsOnScroll() {
-  const observerOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -100px 0px",
-  };
+    function currentTheme() {
+      var stored = root.getAttribute("data-theme");
+      if (stored) return stored;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
 
-  const observer = new IntersectionObserver(function (entries) {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("fade-in-up");
-        observer.unobserve(entry.target);
-      }
+    function label() {
+      var next = currentTheme() === "dark" ? "claro" : "escuro";
+      toggle.setAttribute("aria-label", "Mudar para o tema " + next);
+      toggle.setAttribute("title", "Mudar para o tema " + next);
+    }
+
+    label();
+    toggle.addEventListener("click", function () {
+      var next = currentTheme() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) { /* modo privado */ }
+      label();
     });
-  }, observerOptions);
+  }
 
-  // Observe cards, timeline items, etc.
-  const animatedElements = document.querySelectorAll(
-    ".card, .timeline-item, .project-card, .contact-item",
-  );
-  animatedElements.forEach((el) => observer.observe(el));
-}
+  /* ------------------------------------------------------------------------
+     Cabeçalho, menu e navegação ativa
+     ---------------------------------------------------------------------- */
+  function initHeader() {
+    var header = $(".site-header");
+    if (header) {
+      onScrollFrame(function () {
+        header.classList.toggle("is-stuck", window.scrollY > 8);
+      });
+    }
 
-// === FORM VALIDATION & SUBMISSION ===
-function initFormValidation() {
-  const contactForm = document.getElementById("contact-form");
-  if (!contactForm) return;
+    var toggle = $(".menu-toggle");
+    var menu = $("#nav-menu");
+    if (!toggle || !menu) return;
 
-  contactForm.addEventListener("submit", async function (e) {
-    e.preventDefault();
+    function setOpen(open) {
+      menu.classList.toggle("is-open", open);
+      toggle.setAttribute("aria-expanded", String(open));
+    }
 
-    // Get form data
-    const formData = {
-      name: document.getElementById("name").value.trim(),
-      email: document.getElementById("email").value.trim(),
-      phone: document.getElementById("phone")?.value.trim() || "",
-      subject: document.getElementById("subject")?.value.trim() || "",
-      message: document.getElementById("message").value.trim(),
-    };
+    toggle.addEventListener("click", function () {
+      setOpen(toggle.getAttribute("aria-expanded") !== "true");
+    });
 
-    // Validate
-    if (!validateForm(formData)) {
+    menu.addEventListener("click", function (event) {
+      if (event.target.closest("a")) setOpen(false);
+    });
+
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Escape") setOpen(false);
+    });
+
+    window.addEventListener("resize", function () {
+      if (window.innerWidth > 860) setOpen(false);
+    });
+  }
+
+  /** Marca o link do menu correspondente à seção visível. */
+  function initActiveSection() {
+    var links = $$(".nav-link[href^='#']");
+    if (!links.length || !("IntersectionObserver" in window)) return;
+
+    var byId = {};
+    var targets = [];
+    links.forEach(function (link) {
+      var section = document.getElementById(link.getAttribute("href").slice(1));
+      if (!section) return;
+      byId[section.id] = link;
+      targets.push(section);
+    });
+
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        links.forEach(function (l) { l.classList.remove("is-active"); l.removeAttribute("aria-current"); });
+        var link = byId[entry.target.id];
+        if (link) { link.classList.add("is-active"); link.setAttribute("aria-current", "true"); }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px", threshold: 0 });
+
+    targets.forEach(function (t) { observer.observe(t); });
+  }
+
+  /* ------------------------------------------------------------------------
+     Revelação de blocos ao rolar
+     ---------------------------------------------------------------------- */
+  function initReveal() {
+    var items = $$(".reveal");
+    if (!items.length) return;
+
+    if (!("IntersectionObserver" in window) ||
+        window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      items.forEach(function (el) { el.classList.add("is-in"); });
       return;
     }
 
-    // Show loading
-    const submitBtn = contactForm.querySelector(".btn-primary");
-    const originalText = submitBtn.textContent;
-    submitBtn.textContent = "Enviando...";
-    submitBtn.disabled = true;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add("is-in");
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.08, rootMargin: "0px 0px -60px 0px" });
 
-    try {
-      // EmailJS integration (configure with your credentials)
-      await sendEmail(formData);
-
-      // Success
-      showMessage(
-        "Mensagem enviada com sucesso! Em breve entrarei em contato.",
-        "success",
-      );
-      contactForm.reset();
-    } catch (error) {
-      // Error
-      showMessage(
-        "Erro ao enviar mensagem. Por favor, tente novamente ou entre em contato diretamente.",
-        "error",
-      );
-      console.error("Form submission error:", error);
-    } finally {
-      submitBtn.textContent = originalText;
-      submitBtn.disabled = false;
-    }
-  });
-}
-
-function validateForm(data) {
-  // Name validation
-  if (data.name.length < 3) {
-    showMessage("Por favor, digite seu nome completo.", "error");
-    return false;
+    items.forEach(function (el) { observer.observe(el); });
   }
 
-  // Email validation
-  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  if (!emailRegex.test(data.email)) {
-    showMessage("Por favor, digite um email válido.", "error");
-    return false;
+  /* ------------------------------------------------------------------------
+     Valores que não podem envelhecer sozinhos
+     ---------------------------------------------------------------------- */
+  function initLiveValues() {
+    var years = new Date().getFullYear() - CAREER_START_YEAR;
+    $$("[data-years-in-tech]").forEach(function (el) { el.textContent = String(years); });
+    $$("[data-current-year]").forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
   }
 
-  // Message validation
-  if (data.message.length < 10) {
-    showMessage(
-      "Por favor, digite uma mensagem com pelo menos 10 caracteres.",
-      "error",
-    );
-    return false;
-  }
+  /* ------------------------------------------------------------------------
+     Formulário de contato
+     ---------------------------------------------------------------------- */
+  function initContactForm() {
+    var form = $("#contact-form");
+    if (!form) return;
 
-  return true;
-}
+    var status = $("#form-status");
+    var submit = $("#contact-submit");
+    var submitLabel = submit ? submit.querySelector("[data-label]") : null;
 
-async function sendEmail(data) {
-  // EmailJS configuration
-  // Replace with your EmailJS credentials
-  const serviceId = "YOUR_SERVICE_ID";
-  const templateId = "YOUR_TEMPLATE_ID";
-  const publicKey = "YOUR_PUBLIC_KEY";
-
-  // For now, simulate email sending
-  // In production, integrate with EmailJS or another service
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      // Simulate success
-      resolve();
-
-      // To integrate EmailJS, uncomment below and configure:
-      /*
-      emailjs.send(serviceId, templateId, {
-        from_name: data.name,
-        from_email: data.email,
-        phone: data.phone,
-        subject: data.subject,
-        message: data.message,
-        to_email: 'rodrigo.dionizio@gmail.com'
-      }, publicKey)
-      .then(response => resolve(response))
-      .catch(error => reject(error));
-      */
-    }, 1000);
-  });
-}
-
-function showMessage(message, type) {
-  // Remove existing messages
-  const existingMsg = document.querySelector(".form-message");
-  if (existingMsg) {
-    existingMsg.remove();
-  }
-
-  // Create message element
-  const messageDiv = document.createElement("div");
-  messageDiv.className = `form-message ${type}`;
-  messageDiv.textContent = message;
-  messageDiv.style.cssText = `
-    padding: 1rem;
-    margin-top: 1rem;
-    border-radius: 8px;
-    font-weight: 600;
-    text-align: center;
-    animation: fadeInUp 0.3s ease-out;
-    ${
-      type === "success"
-        ? "background: #d4edda; color: #155724; border: 1px solid #c3e6cb;"
-        : "background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;"
-    }
-  `;
-
-  const form = document.getElementById("contact-form");
-  form.appendChild(messageDiv);
-
-  // Auto remove after 5 seconds
-  setTimeout(() => {
-    messageDiv.style.animation = "fadeOut 0.3s ease-out";
-    setTimeout(() => messageDiv.remove(), 300);
-  }, 5000);
-}
-
-// === UTILITY FUNCTIONS ===
-
-// Debounce function for performance
-function debounce(func, wait) {
-  let timeout;
-  return function executedFunction(...args) {
-    const later = () => {
-      clearTimeout(timeout);
-      func(...args);
-    };
-    clearTimeout(timeout);
-    timeout = setTimeout(later, wait);
-  };
-}
-
-// Get current year for footer
-function updateCurrentYear() {
-  const yearElement = document.getElementById("current-year");
-  if (yearElement) {
-    yearElement.textContent = new Date().getFullYear();
-  }
-}
-
-// Call on load
-updateCurrentYear();
-
-// === THEME TOGGLE (Optional Feature) ===
-function initThemeToggle() {
-  const themeToggle = document.getElementById("theme-toggle");
-  if (!themeToggle) return;
-
-  const currentTheme = localStorage.getItem("theme") || "light";
-  document.documentElement.setAttribute("data-theme", currentTheme);
-
-  themeToggle.addEventListener("click", function () {
-    const theme = document.documentElement.getAttribute("data-theme");
-    const newTheme = theme === "light" ? "dark" : "light";
-
-    document.documentElement.setAttribute("data-theme", newTheme);
-    localStorage.setItem("theme", newTheme);
-  });
-}
-
-// === TYPING EFFECT (Optional for Hero) ===
-function initTypingEffect() {
-  const typedElement = document.querySelector(".typed-text");
-  if (!typedElement) return;
-
-  const texts = [
-    "Professor de Informática",
-    "Desenvolvedor Full Stack",
-    "Especialista em Infraestrutura",
-  ];
-
-  let textIndex = 0;
-  let charIndex = 0;
-  let isDeleting = false;
-
-  function type() {
-    const currentText = texts[textIndex];
-
-    if (isDeleting) {
-      typedElement.textContent = currentText.substring(0, charIndex - 1);
-      charIndex--;
-    } else {
-      typedElement.textContent = currentText.substring(0, charIndex + 1);
-      charIndex++;
+    function setError(field, message) {
+      var box = document.getElementById(field.id + "-error");
+      if (box) box.textContent = message || "";
+      if (message) field.setAttribute("aria-invalid", "true");
+      else field.removeAttribute("aria-invalid");
+      return !message;
     }
 
-    let typeSpeed = isDeleting ? 50 : 100;
-
-    if (!isDeleting && charIndex === currentText.length) {
-      typeSpeed = 2000; // Pause at end
-      isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-      isDeleting = false;
-      textIndex = (textIndex + 1) % texts.length;
-      typeSpeed = 500; // Pause before next text
+    function validate(data, fields) {
+      var ok = true;
+      ok = setError(fields.name, data.name.length >= 3 ? "" : "Informe seu nome completo.") && ok;
+      ok = setError(fields.email, /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email) ? "" : "Informe um e-mail válido.") && ok;
+      ok = setError(fields.message, data.message.length >= 10 ? "" : "Escreva ao menos 10 caracteres.") && ok;
+      return ok;
     }
 
-    setTimeout(type, typeSpeed);
+    function show(kind, html) {
+      if (!status) return;
+      status.className = "form-status is-visible form-status--" + kind;
+      status.innerHTML = html;
+      status.setAttribute("role", kind === "ok" ? "status" : "alert");
+    }
+
+    function plainText(data) {
+      return [
+        "Nome: " + data.name,
+        "E-mail: " + data.email,
+        data.phone ? "Telefone: " + data.phone : "",
+        "Assunto: " + (data.subject || "Contato pelo portfólio"),
+        "",
+        data.message
+      ].filter(Boolean).join("\n");
+    }
+
+    /** Sem chave configurada: entrega a mensagem por e-mail ou WhatsApp. */
+    function fallback(data) {
+      var subject = CONTACT.SUBJECT_PREFIX + " " + (data.subject || "Contato de " + data.name);
+      var mailto = "mailto:" + CONTACT.EMAIL +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + encodeURIComponent(plainText(data));
+      var whats = "https://wa.me/" + CONTACT.WHATSAPP + "?text=" + encodeURIComponent(plainText(data));
+
+      show("info",
+        "<strong>Sua mensagem está pronta — falta só enviar.</strong><br>" +
+        "O envio automático ainda não está ativo neste site. Escolha um canal abaixo: " +
+        "os seus dados já vão preenchidos." +
+        '<span class="form-status__actions">' +
+        '<a class="btn btn--primary" href="' + mailto + '">Enviar por e-mail</a>' +
+        '<a class="btn btn--outline" target="_blank" rel="noopener" href="' + whats + '">Enviar pelo WhatsApp</a>' +
+        "</span>");
+    }
+
+    form.addEventListener("submit", function (event) {
+      event.preventDefault();
+
+      var fields = {
+        name: $("#name", form),
+        email: $("#email", form),
+        phone: $("#phone", form),
+        subject: $("#subject", form),
+        message: $("#message", form)
+      };
+
+      var data = {
+        name: fields.name.value.trim(),
+        email: fields.email.value.trim(),
+        phone: fields.phone.value.trim(),
+        subject: fields.subject.value.trim(),
+        message: fields.message.value.trim()
+      };
+
+      if (!validate(data, fields)) {
+        show("err", "Confira os campos destacados e tente novamente.");
+        return;
+      }
+
+      // Armadilha antisspam: preenchida = robô.
+      var honeypot = $("#company", form);
+      if (honeypot && honeypot.value) return;
+
+      if (!CONTACT.ACCESS_KEY) {
+        fallback(data);
+        return;
+      }
+
+      if (submit) { submit.disabled = true; }
+      if (submitLabel) { submitLabel.textContent = "Enviando…"; }
+
+      fetch(CONTACT.ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: CONTACT.ACCESS_KEY,
+          subject: CONTACT.SUBJECT_PREFIX + " " + (data.subject || "Contato de " + data.name),
+          from_name: data.name,
+          name: data.name,
+          email: data.email,
+          phone: data.phone,
+          message: data.message
+        })
+      })
+        .then(function (response) {
+          return response.json().then(function (body) {
+            if (!response.ok || body.success === false) {
+              throw new Error(body.message || "Falha no envio (HTTP " + response.status + ")");
+            }
+            return body;
+          });
+        })
+        .then(function () {
+          form.reset();
+          show("ok", "<strong>Mensagem enviada.</strong><br>Recebi seu contato e respondo em até 1 dia útil.");
+        })
+        .catch(function (error) {
+          // Nunca dizemos que deu certo quando não deu.
+          console.error("[contato] envio falhou:", error);
+          fallback(data);
+        })
+        .finally(function () {
+          if (submit) { submit.disabled = false; }
+          if (submitLabel) { submitLabel.textContent = "Enviar mensagem"; }
+        });
+    });
+
+    // Limpa o erro assim que a pessoa corrige o campo.
+    ["name", "email", "message"].forEach(function (id) {
+      var field = $("#" + id, form);
+      if (!field) return;
+      field.addEventListener("input", function () {
+        if (field.getAttribute("aria-invalid") === "true") setError(field, "");
+      });
+    });
   }
 
-  type();
-}
+  /* ------------------------------------------------------------------------
+     Início
+     ---------------------------------------------------------------------- */
+  function init() {
+    initTheme();
+    initHeader();
+    initActiveSection();
+    initReveal();
+    initLiveValues();
+    initContactForm();
+  }
 
-// === CONSOLE MESSAGE ===
-console.log(
-  "%c🚀 Portfólio Rodrigo Dionizio",
-  "font-size: 20px; font-weight: bold; color: #2C5F8D;",
-);
-console.log(
-  "%cDesenvolvido com HTML, CSS e JavaScript",
-  "font-size: 12px; color: #6C757D;",
-);
-console.log(
-  "%cGitHub: github.com/rodrigodionizio",
-  "font-size: 12px; color: #0066CC;",
-);
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", init);
+  } else {
+    init();
+  }
+})();

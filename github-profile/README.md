@@ -4,15 +4,15 @@
 
 ### Infraestrutura que não cai. Software que entra em produção.
 
-**24 anos** projetando redes, servidores e VPNs — e construindo as aplicações que rodam sobre elas.<br>
-Chefe de Departamento de TI desde 2002 · Professor técnico de Informática · Minas Gerais, Brasil
+**23 anos** projetando redes, servidores e VPNs — e construindo as aplicações que rodam sobre elas.<br>
+Chefe de Departamento de TI desde 2003 · Professor técnico de Informática · Minas Gerais, Brasil
 
 [![Portfólio](https://img.shields.io/badge/Portfólio-rodrigodionizio.github.io-0B4F5A?style=for-the-badge)](https://rodrigodionizio.github.io/meuportifolio/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-in%2Frodrigodionizio-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/rodrigodionizio)
 [![E-mail](https://img.shields.io/badge/E--mail-rodrigo.dionizio@gmail.com-A8501F?style=for-the-badge&logo=gmail&logoColor=white)](mailto:rodrigo.dionizio@gmail.com)
 [![WhatsApp](https://img.shields.io/badge/WhatsApp-(33)%2098820--3127-1F6B4B?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/5533988203127)
 
-<img src="https://img.shields.io/badge/24-anos%20em%20TI-0B4F5A?style=flat-square" alt="24 anos em TI">
+<img src="https://img.shields.io/badge/23-anos%20em%20TI-0B4F5A?style=flat-square" alt="23 anos em TI">
 <img src="https://img.shields.io/badge/4-sistemas%20em%20produção-1F6B4B?style=flat-square" alt="4 sistemas em produção">
 <img src="https://img.shields.io/badge/200%2B-servidores%20capacitados-A8501F?style=flat-square" alt="200+ servidores capacitados">
 <img src="https://img.shields.io/badge/100%2B-alunos%20formados-6E7C7F?style=flat-square" alt="100+ alunos formados">
@@ -72,11 +72,11 @@ Projeto o sistema sabendo quem vai manter o servidor, porque o servidor também 
 ## Frente principal 1 — Infraestrutura de TI
 
 <details open>
-<summary><b>24 anos de infraestrutura que não pode parar</b> · clique para recolher</summary>
+<summary><b>23 anos de infraestrutura que não pode parar</b> · clique para recolher</summary>
 
 <br>
 
-Responsável pela infraestrutura de tecnologia de um município inteiro desde 2002: rede, servidores, bancos de dados, segurança e suporte a todas as secretarias. Em paralelo, projetos de rede corporativa para indústria e laboratórios clínicos.
+Responsável pela infraestrutura de tecnologia de um município inteiro desde 2003: rede, servidores, bancos de dados, segurança e suporte a todas as secretarias. Em paralelo, projetos de rede corporativa para indústria e laboratórios clínicos.
 
 **Domínio — em produção sob minha responsabilidade**
 
@@ -168,8 +168,8 @@ Não são uma terceira carreira. São as competências que fazem o meu trabalho 
 
 | Competência | Onde se prova |
 | :--- | :--- |
-| **Docência técnica** | Professor PEB I de Informática — Governo de MG. Lógica de Programação, Planilhas e Informática para Internet. **100+ alunos formados** |
-| **Gestão de TI** | Chefia de departamento desde 2002: equipe, orçamento, fornecedores e contratos |
+| **Docência técnica** | Professor de curso técnico em Informática — Governo de MG (2013–2015 e 2023–2025). Lógica de Programação, Planilhas e Informática para Internet. **100+ alunos formados** |
+| **Gestão de TI** | Chefia de departamento desde 2003: equipe, orçamento, fornecedores e contratos |
 | **Capacitação de equipes** | **200+ servidores públicos** treinados em sistemas corporativos |
 | **Documentação técnica** | Topologias, procedimentos e transferência de conhecimento em todo projeto entregue |
 | **Interlocução técnica–gestão** | Traduzir decisão de arquitetura em termos de custo, risco e prazo |
@@ -183,21 +183,22 @@ Quem ensina precisa simplificar sem perder o rigor. Isso aparece no código, no 
 ## Trajetória
 
 <details>
-<summary><b>2002 → hoje</b> · clique para abrir</summary>
+<summary><b>2003 → hoje</b> · clique para abrir</summary>
 
 <br>
 
 | Período | Cargo | Organização |
 | :--- | :--- | :--- |
-| **2002 — atual** | Chefe do Departamento de TI | Prefeitura Municipal de Itabirinha |
-| **2023 — atual** | Professor PEB I — Informática | Governo do Estado de Minas Gerais |
-| 2013 — 2024 | Consultor de infraestrutura de TI | SERTEC, Laticínios Vila Nova, BIONALISE, ITALAB |
+| **2003 — atual** | Chefe do Departamento de TI | Prefeitura Municipal de Itabirinha |
+| 2023 — 2025 | Professor de curso técnico em Informática | Governo do Estado de Minas Gerais |
+| 2003 — 2024 | Consultor de infraestrutura de TI | SERTEC, Laticínios Vila Nova, BIONALISE, ITALAB |
 | 2018 — 2020 | Supervisor de Informática | Prefeitura Municipal de São José do Divino |
-| 2013 — 2014 | Professor PEB I — Informática | Governo do Estado de Minas Gerais |
+| 2013 — 2015 | Professor de curso técnico em Informática | Governo do Estado de Minas Gerais |
 | 2008 | Analista de Suporte | TOTVS S.A. — Unidade Leste de Minas |
 
-**Certificação:** cabeamento estruturado Furukawa.
-**Idiomas:** português nativo, inglês técnico (leitura fluente de documentação).
+**Formação:** Bacharelado em Sistemas de Informação — UNIVALE (2008) · Técnico em Informática com ênfase em Internet — ETEIT (2001) · Pós-graduação em Engenharia de Redes, em andamento.
+**Certificação:** Cabeamento Estruturado — Furukawa (FCA), 120 horas.
+**Idiomas:** português nativo · inglês técnico (leitura fluente de documentação) · espanhol.
 
 </details>
 

@@ -16,21 +16,30 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Validar HTML e procurar links quebrados
-        uses: anishathalye/proof-html@v2
+      - name: Validar HTML
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
         with:
-          directory: ./docs
-          check_html: true
-          check_favicon: true
-          check_external_hash: false
-          enforce_https: false
-          ignore_missing_alt: false
-          # Redes sociais bloqueiam robôs de verificação; o CV é enviado à parte.
-          url_ignore_re: |
-            ^https://www\.linkedin\.com/
-            ^https://www\.instagram\.com/
-            ^https://wa\.me/
-            rodrigo-dionizio-cv\.pdf$
+          root: docs/
+          log_level: WARNING
+
+      - name: Procurar links quebrados
+        uses: lycheeverse/lychee-action@v2
+        with:
+          # Excluídos: LinkedIn, Instagram e WhatsApp bloqueiam robôs de verificação,
+          # e o CV em PDF é enviado à parte (ver MANUTENCAO.md).
+          args: >-
+            --no-progress
+            --max-concurrency 4
+            --accept 200,206,301,302,403
+            --exclude linkedin[.]com
+            --exclude instagram[.]com
+            --exclude wa[.]me
+            --exclude fonts[.]googleapis[.]com
+            --exclude fonts[.]gstatic[.]com
+            --exclude rodrigodionizio[.]github[.]io/meuportifolio
+            --exclude rodrigo-dionizio-cv[.]pdf
+            'docs/**/*.html'
+          fail: true
 
   performance:
     name: Lighthouse

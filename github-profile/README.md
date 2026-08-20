@@ -29,7 +29,7 @@ Quatro sistemas meus estão no ar neste momento, com usuários reais — constru
 | Sistema | O que é | Stack | Estado |
 | :--- | :--- | :--- | :--- |
 | **[Sacristia Digital](https://sacristiadigital.com.br)** | Plataforma SaaS **multi-tenant** de gestão paroquial: agenda litúrgica, eventos, comunidade e relatórios. Cada paróquia em ambiente isolado, com autenticação e níveis de permissão próprios. | `Next.js` `TypeScript` `React` `PostgreSQL` `Tailwind` | 🟢 Produção · domínio próprio |
-| **OSCRM** | HelpDesk e CRM interno de ordens de serviço de TI: abertura de chamado, triagem por prioridade, **fila com SLA**, atribuição a técnicos, histórico e relatórios. | `Next.js` `TypeScript` `PostgreSQL` `Vercel` | 🟢 Produção · uso interno diário · acesso restrito |
+| **[OSCRM](https://project-wza36.vercel.app)** | HelpDesk e CRM interno de ordens de serviço de TI: abertura de chamado, triagem por prioridade, **fila com SLA**, atribuição a técnicos, histórico e relatórios. | `Next.js` `TypeScript` `PostgreSQL` `Vercel` | 🟢 Produção · uso interno diário |
 | **[Calendário Litúrgico Paroquial](https://rodrigodionizio.github.io/calendario-liturgico-paroquial/)** | Gestão pastoral completa em **PWA offline**: calendário litúrgico, escalas de equipes, mural de avisos, painel administrativo e relatórios em PDF. Captura diária da liturgia por **Edge Function em Deno**; cache derruba 70% das chamadas de API. | `JavaScript ES6+` `Supabase` `PostgreSQL` `Deno` `Python` `PWA` | 🟢 Produção · [código público](https://github.com/rodrigodionizio/calendario-liturgico-paroquial) |
 | **[Sorteios Bom Jesus](https://sorteios-bomjesus.vercel.app)** | Campanhas, rifas e ações entre amigos: reserva de números **em tempo real**, comprovante ao participante, painel de vendas e prestação de contas pública. | `Next.js` `TypeScript` `Vercel` | 🟢 Produção · campanhas reais |
 
@@ -69,7 +69,7 @@ Projeto o sistema sabendo quem vai manter o servidor, porque o servidor também 
 
 ---
 
-## Frente principal 1 — Infraestrutura de TI
+## Infraestrutura de TI
 
 <details open>
 <summary><b>23 anos de infraestrutura que não pode parar</b> · clique para recolher</summary>
@@ -110,7 +110,7 @@ Responsável pela infraestrutura de tecnologia de um município inteiro desde 20
 
 ---
 
-## Frente principal 2 — Desenvolvimento Full Stack
+## Desenvolvimento Full Stack
 
 <details open>
 <summary><b>Aplicações que resolvem um problema real e chegam à produção</b> · clique para recolher</summary>
@@ -157,7 +157,7 @@ Construo software para operações que eu conheço por dentro — gestão públi
 
 ---
 
-## Competências de sustentação
+## Competências
 
 <details>
 <summary><b>Docência, gestão e comunicação</b> — o que torna as duas frentes confiáveis em equipe · clique para abrir</summary>

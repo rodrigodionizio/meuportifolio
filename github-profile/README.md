@@ -4,7 +4,7 @@
 
 ### Infraestrutura que não cai. Software que entra em produção.
 
-**23 anos** projetando redes, servidores e VPNs — e construindo as aplicações que rodam sobre elas.<br>
+**17 anos** projetando redes, servidores e VPNs — e construindo as aplicações que rodam sobre elas.<br>
 Chefe de Departamento de TI desde 2003 · Professor técnico de Informática · Minas Gerais, Brasil
 
 [![Portfólio](https://img.shields.io/badge/Portfólio-rodrigodionizio.github.io-0B4F5A?style=for-the-badge)](https://rodrigodionizio.github.io/meuportifolio/)
@@ -29,11 +29,21 @@ Quatro sistemas meus estão no ar neste momento, com usuários reais — constru
 | Sistema | O que é | Stack | Estado |
 | :--- | :--- | :--- | :--- |
 | **[Sacristia Digital](https://sacristiadigital.com.br)** | Plataforma SaaS **multi-tenant** de gestão paroquial: agenda litúrgica, eventos, comunidade e relatórios. Cada paróquia em ambiente isolado, com autenticação e níveis de permissão próprios. | `Next.js` `TypeScript` `React` `PostgreSQL` `Tailwind` | 🟢 Produção · domínio próprio |
-| **OSCRM** | HelpDesk e CRM interno de ordens de serviço de TI: abertura de chamado, triagem por prioridade, **fila com SLA**, atribuição a técnicos, histórico e relatórios. | `Next.js` `TypeScript` `PostgreSQL` `Vercel` | 🟢 Produção · uso interno diário · acesso restrito |
+| **[OSCRM](https://oscrm.vercel.app)** | Ordens de serviço, parque de TI e financeiro num sistema só: OS ponta a ponta, **patrimônio com etiqueta QR**, orçamentos, faturas e cobrança por Pix, catálogo de peças e serviços e relatórios gerenciais do parque de cada cliente. **34 mil linhas de TypeScript, 41 telas, 33 rotas de API, 29 migrações versionadas.** | `Next.js 16` `React 19` `TypeScript` `Supabase` `PostgreSQL` `Vercel` | 🟢 Produção · uso diário · acesso por login |
 | **[Calendário Litúrgico Paroquial](https://rodrigodionizio.github.io/calendario-liturgico-paroquial/)** | Gestão pastoral completa em **PWA offline**: calendário litúrgico, escalas de equipes, mural de avisos, painel administrativo e relatórios em PDF. Captura diária da liturgia por **Edge Function em Deno**; cache derruba 70% das chamadas de API. | `JavaScript ES6+` `Supabase` `PostgreSQL` `Deno` `Python` `PWA` | 🟢 Produção · [código público](https://github.com/rodrigodionizio/calendario-liturgico-paroquial) |
 | **[Sorteios Bom Jesus](https://sorteios-bomjesus.vercel.app)** | Campanhas, rifas e ações entre amigos: reserva de números **em tempo real**, comprovante ao participante, painel de vendas e prestação de contas pública. | `Next.js` `TypeScript` `Vercel` | 🟢 Produção · campanhas reais |
 
-Também no ar: **[Avisos EENSA](https://avisos-eensa.vercel.app)** (quadro de avisos digital de escola estadual) e **[PoupeMais](https://rodrigodionizio.github.io/PoupeMais/)** (metas de poupança).
+### Também no ar
+
+| Sistema | O que resolve | Stack |
+| :--- | :--- | :--- |
+| **[BotaNaConta](https://botana-conta.vercel.app)** | Comanda aberta para bar e pequeno negócio informal: o cliente confere os itens com foto a qualquer momento | `TypeScript` `Next.js` `Vercel` |
+| **[Avisos EENSA](https://avisos-eensa.vercel.app)** | Quadro de avisos digital que substituiu o mural de papel da escola estadual | `TypeScript` `Vercel` |
+| **[Fluência em Leitura](https://github.com/rodrigodionizio/fluenciaemleituraEENSA)** | Registro e acompanhamento da fluência leitora dos alunos, por turma e ao longo do ano | `TypeScript` |
+| **[Vizzo Barber](https://github.com/rodrigodionizio/SaasVizzoBarber)** | Agendamento para barbearias e clínicas de estética, multi-tenant | `TypeScript` |
+| **[VitaLink](https://vitalink-sooty.vercel.app)** | Vitrine de afiliados com catálogo e rastreio de links | `HTML` `JavaScript` |
+| **[Gerador de senhas](https://github.com/rodrigodionizio/geradordesenhas)** | Senhas fortes 100% no navegador — sem dependência, sem build, sem back-end | `JavaScript` |
+| **[PoupeMais](https://rodrigodionizio.github.io/PoupeMais/)** | Acompanhamento de metas de poupança e investimento pessoal | `HTML` `JavaScript` |
 
 ---
 
@@ -189,7 +199,7 @@ Quem ensina precisa simplificar sem perder o rigor. Isso aparece no código, no 
 
 | Período | Cargo | Organização |
 | :--- | :--- | :--- |
-| **2003 — atual** | Chefe do Departamento de TI | Prefeitura Municipal de Itabirinha |
+| **2009 — atual** | Chefe do Departamento de TI | Prefeitura Municipal de Itabirinha |
 | 2023 — 2025 | Professor de curso técnico em Informática | Governo do Estado de Minas Gerais |
 | 2003 — 2024 | Consultor de infraestrutura de TI | SERTEC, Laticínios Vila Nova, BIONALISE, ITALAB |
 | 2018 — 2020 | Supervisor de Informática | Prefeitura Municipal de São José do Divino |

@@ -8,7 +8,7 @@
     <title>Rodrigo Dionizio — Infraestrutura de TI e Desenvolvimento Full Stack</title>
     <meta
       name="description"
-      content="Rodrigo Dionizio: em tecnologia desde 2003. Chefe de Departamento de TI, desenvolvedor full stack (Next.js, React, TypeScript, PostgreSQL) e professor técnico de Informática em Minas Gerais. Redes, servidores, VPN, MikroTik e plataformas SaaS em produção."
+      content="Infraestrutura de TI e desenvolvimento full stack desde 2003. Redes, servidores, VPN e MikroTik; Next.js, TypeScript e PostgreSQL em produção."
     />
     <meta
       name="keywords"
@@ -60,13 +60,10 @@
     <link rel="apple-touch-icon" href="./assets/icons/apple-touch-icon.png" />
     <link rel="manifest" href="./site.webmanifest" />
 
-    <!-- Tipografia -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700&family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap"
-      rel="stylesheet"
-    />
+    <!-- Tipografia hospedada no próprio site: sem ida ao Google antes do primeiro pixel -->
+    <link rel="preload" href="./assets/fonts/space-grotesk-700-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="./assets/fonts/instrument-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="./assets/css/fonts.css" />
     <link rel="stylesheet" href="./assets/css/style.css" />
 
     <!-- Evita o piscar de tema claro antes do CSS aplicar a escolha salva -->
@@ -191,9 +188,10 @@
                 "item": {
                   "@type": "SoftwareApplication",
                   "name": "OSCRM",
+                  "url": "https://oscrm.vercel.app",
                   "applicationCategory": "BusinessApplication",
                   "operatingSystem": "Web",
-                  "description": "Sistema de HelpDesk e CRM interno para controle de ordens de serviço de tecnologia.",
+                  "description": "Sistema de ordens de serviço, parque de TI e financeiro: OS ponta a ponta, patrimônio com etiqueta QR, orçamentos, faturas, cobrança por Pix e relatórios gerenciais.",
                   "author": { "@id": "https://rodrigodionizio.github.io/meuportifolio/#rodrigo" }
                 }
               },
@@ -219,6 +217,45 @@
                   "applicationCategory": "BusinessApplication",
                   "operatingSystem": "Web",
                   "description": "Plataforma de campanhas, rifas e sorteios com acompanhamento público e prestação de contas.",
+                  "author": { "@id": "https://rodrigodionizio.github.io/meuportifolio/#rodrigo" }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 5,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "BotaNaConta",
+                  "url": "https://botana-conta.vercel.app",
+                  "applicationCategory": "BusinessApplication",
+                  "operatingSystem": "Web",
+                  "description": "Comanda digital para bares e pequenos negócios: itens com foto, conferência pelo cliente e fechamento transparente.",
+                  "author": { "@id": "https://rodrigodionizio.github.io/meuportifolio/#rodrigo" }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 6,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Avisos EENSA",
+                  "url": "https://avisos-eensa.vercel.app",
+                  "applicationCategory": "EducationalApplication",
+                  "operatingSystem": "Web",
+                  "description": "Quadro de avisos digital da Escola Estadual Nossa Senhora Auxiliadora.",
+                  "author": { "@id": "https://rodrigodionizio.github.io/meuportifolio/#rodrigo" }
+                }
+              },
+              {
+                "@type": "ListItem",
+                "position": 7,
+                "item": {
+                  "@type": "SoftwareApplication",
+                  "name": "Fluência em Leitura EENSA",
+                  "url": "https://github.com/rodrigodionizio/fluenciaemleituraEENSA",
+                  "applicationCategory": "EducationalApplication",
+                  "operatingSystem": "Web",
+                  "description": "Registro e acompanhamento da fluência leitora dos alunos, por turma e ao longo do ano.",
                   "author": { "@id": "https://rodrigodionizio.github.io/meuportifolio/#rodrigo" }
                 }
               }
@@ -282,7 +319,7 @@
         </nav>
 
         <div class="nav-tools">
-          <a class="lang-switch" href="./en/" hreflang="en" aria-label="Switch to English version">EN</a>
+          <a class="lang-switch" href="./en/" hreflang="en" aria-label="EN — English version">EN</a>
           <button class="icon-btn" type="button" data-theme-toggle aria-label="Mudar de tema">
             <svg class="icon" data-theme-icon="light" aria-hidden="true"><use href="#i-moon" /></svg>
             <svg class="icon" data-theme-icon="dark" aria-hidden="true"><use href="#i-sun" /></svg>
@@ -385,7 +422,8 @@
         <div class="wrap">
           <div class="section-head reveal">
             <p class="eyebrow">Especialidades</p>
-            <h2 class="section-title">Duas frentes principais, uma competência que sustenta as duas</h2>
+            <h2 class="section-title">Infraestrutura de TI e desenvolvimento full stack</h2>
+            <p class="section-sub">Duas frentes principais, e uma competência que sustenta as duas.</p>
             <p class="section-intro">
               Infraestrutura e desenvolvimento são o centro do meu trabalho. Docência e gestão são o que me faz
               documentar, explicar e entregar tudo isso de forma que outra pessoa consiga operar depois de mim.
@@ -458,10 +496,11 @@
         <div class="wrap">
           <div class="section-head reveal">
             <p class="eyebrow">Software em produção</p>
-            <h2 class="section-title">Sistemas com usuários reais, mantidos por mim</h2>
+            <h2 class="section-title">Projetos em produção</h2>
+            <p class="section-sub">Sistemas com usuários reais, mantidos por mim.</p>
             <p class="section-intro">
-              Não são exercícios de estudo. São quatro aplicações no ar, com pessoas dependendo delas — construídas,
-              publicadas e mantidas do banco de dados ao suporte.
+              Não são exercícios de estudo. São aplicações no ar, com pessoas dependendo delas — construídas,
+              publicadas e mantidas por mim, do banco de dados ao suporte. As quatro primeiras são as de maior porte.
             </p>
           </div>
 
@@ -511,29 +550,41 @@
             <article class="project reveal">
               <div class="project__media">
                 <span class="project__status project__status--live">Em produção</span>
-                <img
-                  src="./assets/img/projects/oscrm.jpg"
-                  width="1280" height="800"
-                  alt="Mapa de módulos do sistema OSCRM: abertura de OS, triagem, fila e SLA, motor de fluxo, técnicos, histórico, relatórios e painel"
-                  loading="lazy" decoding="async"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset="./assets/img/projects/oscrm-640.webp 640w, ./assets/img/projects/oscrm-1280.webp 1280w"
+                    sizes="(min-width: 60rem) 34rem, 100vw"
+                  />
+                  <img
+                    src="./assets/img/projects/oscrm-1280.jpg"
+                    width="1280" height="800"
+                    alt="Tela de entrada do OSCRM, sistema de ordens de serviço da RT Informática"
+                    loading="lazy" decoding="async"
+                  />
+                </picture>
               </div>
               <div class="project__body">
-                <p class="project__kicker">HelpDesk e CRM interno</p>
+                <p class="project__kicker">Ordens de serviço, parque de TI e financeiro</p>
                 <h3>OSCRM</h3>
                 <p>
-                  Sistema de ordens de serviço de TI construído para substituir planilhas e e-mail no atendimento
-                  interno: abertura de chamado, triagem por prioridade, fila com SLA, atribuição a técnicos, histórico e
-                  relatórios de tempo médio e volume.
+                  O sistema principal da operação: abertura e acompanhamento de ordens de serviço, cadastro de parque
+                  com etiqueta de patrimônio e QR Code, orçamentos, faturas e cobrança por Pix, catálogo de peças e
+                  serviços, e relatórios gerenciais sobre o parque de cada cliente. Em uso diário, em produção.
                 </p>
-                <p class="project__impact">Uso interno diário · fila com SLA · relatórios de atendimento</p>
+                <p class="project__impact">
+                  34 mil linhas de TypeScript · 41 telas · 33 rotas de API · 29 migrações versionadas · 48 artigos de ajuda
+                </p>
                 <ul class="tags">
-                  <li class="tag">Next.js</li><li class="tag">TypeScript</li><li class="tag">PostgreSQL</li>
-                  <li class="tag">Vercel</li>
+                  <li class="tag">Next.js 16</li><li class="tag">React 19</li><li class="tag">TypeScript</li>
+                  <li class="tag">Supabase</li><li class="tag">PostgreSQL</li><li class="tag">Vercel</li>
                 </ul>
                 <div class="project__links">
-                  <span class="project__note">sistema interno · acesso restrito</span>
-                  <span class="project__note">código fechado</span>
+                  <a class="project__link" href="https://oscrm.vercel.app" target="_blank" rel="noopener">
+                    <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                    Acessar o sistema
+                  </a>
+                  <span class="project__note">acesso por login · código fechado</span>
                 </div>
               </div>
             </article>
@@ -551,7 +602,7 @@
                   <img
                     src="./assets/img/projects/calendario-liturgico-1280.jpg"
                     width="1280" height="688"
-                    alt="Interface do Calendário Litúrgico Paroquial"
+                    alt="Grade mensal do Calendário Litúrgico Paroquial, com filtro por comunidade e por equipe"
                     loading="lazy" decoding="async"
                   />
                 </picture>
@@ -588,12 +639,19 @@
             <article class="project reveal">
               <div class="project__media">
                 <span class="project__status project__status--live">Em produção</span>
-                <img
-                  src="./assets/img/projects/sorteios-bomjesus.jpg"
-                  width="1280" height="800"
-                  alt="Mapa de módulos do sistema Sorteios Bom Jesus: campanha, reserva de números, confirmação, painel da organização, acompanhamento, sorteio e prestação de contas"
-                  loading="lazy" decoding="async"
-                />
+                <picture>
+                  <source
+                    type="image/webp"
+                    srcset="./assets/img/projects/sorteios-bomjesus-640.webp 640w, ./assets/img/projects/sorteios-bomjesus-1280.webp 1280w"
+                    sizes="(min-width: 60rem) 34rem, 100vw"
+                  />
+                  <img
+                    src="./assets/img/projects/sorteios-bomjesus-1280.jpg"
+                    width="1280" height="800"
+                    alt="Página pública do Sorteios Bom Jesus com as campanhas em andamento e o percentual de cartelas confirmadas"
+                    loading="lazy" decoding="async"
+                  />
+                </picture>
               </div>
               <div class="project__body">
                 <p class="project__kicker">Plataforma de campanhas</p>
@@ -618,14 +676,74 @@
             </article>
           </div>
 
+          <h3 class="tier-label reveal">Também no ar, resolvendo um problema específico</h3>
+          <div class="projects--compact">
+            <article class="pcard reveal">
+              <p class="pcard__kicker">Comanda digital</p>
+              <h4>BotaNaConta</h4>
+              <p>
+                Comanda aberta para bar e pequeno negócio informal: o cliente confere os itens com foto a qualquer
+                momento, e a conta deixa de ser uma discussão no fim da noite.
+              </p>
+              <ul class="tags">
+                <li class="tag">TypeScript</li><li class="tag">Next.js</li><li class="tag">Vercel</li>
+              </ul>
+              <a class="project__link" href="https://botana-conta.vercel.app" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg> Acessar
+              </a>
+            </article>
+
+            <article class="pcard reveal">
+              <p class="pcard__kicker">Comunicação escolar</p>
+              <h4>Avisos EENSA</h4>
+              <p>
+                Quadro de avisos digital da Escola Estadual Nossa Senhora Auxiliadora. Substituiu o mural de papel:
+                a secretaria publica e o aviso chega a quem precisa, no mesmo dia.
+              </p>
+              <ul class="tags">
+                <li class="tag">TypeScript</li><li class="tag">Vercel</li>
+              </ul>
+              <a class="project__link" href="https://avisos-eensa.vercel.app" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg> Acessar
+              </a>
+            </article>
+
+            <article class="pcard reveal">
+              <p class="pcard__kicker">Avaliação pedagógica</p>
+              <h4>Fluência em Leitura</h4>
+              <p>
+                Registro e acompanhamento da fluência leitora dos alunos da EENSA — Mendes Pimentel. O professor
+                lança a avaliação e o progresso de cada turma fica visível ao longo do ano.
+              </p>
+              <ul class="tags">
+                <li class="tag">TypeScript</li>
+              </ul>
+              <a class="project__link" href="https://github.com/rodrigodionizio/fluenciaemleituraEENSA" target="_blank" rel="noopener">
+                <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg> Ver o código
+              </a>
+            </article>
+          </div>
+
           <div class="more-projects reveal">
-            <p class="more-projects__label">Também no ar</p>
+            <p class="more-projects__label">E também construí</p>
             <ul class="more-projects__list">
               <li>
-                <a href="https://avisos-eensa.vercel.app" target="_blank" rel="noopener">
-                  Avisos EENSA <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                <a href="https://github.com/rodrigodionizio/SaasVizzoBarber" target="_blank" rel="noopener">
+                  Vizzo Barber <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
                 </a>
-                <span>Quadro de avisos digital para a escola estadual — TypeScript, Vercel</span>
+                <span>Agendamento para barbearias e clínicas de estética — TypeScript, SaaS multi-tenant</span>
+              </li>
+              <li>
+                <a href="https://vitalink-sooty.vercel.app" target="_blank" rel="noopener">
+                  VitaLink <svg class="icon" aria-hidden="true"><use href="#i-external" /></svg>
+                </a>
+                <span>Vitrine de afiliados com catálogo e rastreio de links — front-end e integração</span>
+              </li>
+              <li>
+                <a href="https://github.com/rodrigodionizio/geradordesenhas" target="_blank" rel="noopener">
+                  Gerador de senhas <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
+                </a>
+                <span>100% no navegador: HTML, CSS e JavaScript puros, sem dependência, sem build, sem back-end</span>
               </li>
               <li>
                 <a href="https://rodrigodionizio.github.io/PoupeMais/" target="_blank" rel="noopener">
@@ -637,7 +755,7 @@
                 <a href="https://github.com/rodrigodionizio" target="_blank" rel="noopener">
                   Repositórios no GitHub <svg class="icon" aria-hidden="true"><use href="#i-github" /></svg>
                 </a>
-                <span>Projetos públicos, experimentos e material de aula</span>
+                <span>26 repositórios: sistemas em produção, experimentos e material de aula</span>
               </li>
             </ul>
           </div>
@@ -649,7 +767,8 @@
         <div class="wrap">
           <div class="section-head reveal">
             <p class="eyebrow">Projetos de infraestrutura</p>
-            <h2 class="section-title">Redes, datacenters e conectividade entregues do projeto à operação</h2>
+            <h2 class="section-title">Redes, datacenter e conectividade</h2>
+            <p class="section-sub">Projetos entregues do desenho à operação.</p>
             <p class="section-intro">
               Três implantações representativas dos últimos anos, com o escopo executado e o resultado entregue ao
               cliente. Os diagramas abaixo descrevem a topologia efetivamente implantada.
@@ -659,11 +778,15 @@
           <div class="cases">
             <article class="case reveal">
               <div class="case__media">
-                <img
-                  src="./assets/img/projects/bionalise.jpg" width="1280" height="800"
+                <picture>
+                  <source type="image/webp"
+                          srcset="./assets/img/projects/bionalise-640.webp 640w, ./assets/img/projects/bionalise.webp 1280w"
+                          sizes="(min-width: 60rem) 22rem, 100vw" />
+                  <img src="./assets/img/projects/bionalise.jpg" width="1280" height="800"
                   alt="Diagrama da rede da BIONALISE: link dedicado, MikroTik com firewall e VPN, switch core e três VLANs com pontos de acesso Wi-Fi"
                   loading="lazy" decoding="async"
                 />
+                </picture>
               </div>
               <div class="case__body">
                 <p class="project__kicker">Análises clínicas · 3 meses</p>
@@ -681,11 +804,15 @@
 
             <article class="case reveal">
               <div class="case__media">
-                <img
-                  src="./assets/img/projects/italab.jpg" width="1280" height="800"
+                <picture>
+                  <source type="image/webp"
+                          srcset="./assets/img/projects/italab-640.webp 640w, ./assets/img/projects/italab.webp 1280w"
+                          sizes="(min-width: 60rem) 22rem, 100vw" />
+                  <img src="./assets/img/projects/italab.jpg" width="1280" height="800"
                   alt="Diagrama da VPN site-to-site da ITALAB entre unidade matriz e unidade remota, com túnel cifrado sobre MikroTik"
                   loading="lazy" decoding="async"
                 />
+                </picture>
               </div>
               <div class="case__body">
                 <p class="project__kicker">Análises clínicas · conectividade</p>
@@ -703,11 +830,15 @@
 
             <article class="case reveal">
               <div class="case__media">
-                <img
-                  src="./assets/img/projects/vila-nova.jpg" width="1280" height="800"
+                <picture>
+                  <source type="image/webp"
+                          srcset="./assets/img/projects/vila-nova-640.webp 640w, ./assets/img/projects/vila-nova.webp 1280w"
+                          sizes="(min-width: 60rem) 22rem, 100vw" />
+                  <img src="./assets/img/projects/vila-nova.jpg" width="1280" height="800"
                   alt="Elevação do rack 24U do datacenter dos Laticínios Vila Nova, com patch panel, switch, MikroTik, servidor, CFTV, telefonia IP e nobreak"
                   loading="lazy" decoding="async"
                 />
+                </picture>
               </div>
               <div class="case__body">
                 <p class="project__kicker">Indústria de laticínios · 4 meses</p>
@@ -731,7 +862,8 @@
         <div class="wrap">
           <div class="section-head reveal">
             <p class="eyebrow">Stack técnico</p>
-            <h2 class="section-title">O que uso, e com que profundidade</h2>
+            <h2 class="section-title">Stack técnico</h2>
+            <p class="section-sub">O que uso, e com que profundidade.</p>
             <p class="section-intro">
               Sem barras de porcentagem: cada tecnologia aparece no nível em que eu realmente a entrego hoje.
               <strong>Domínio</strong> significa em produção sob minha responsabilidade; <strong>sólido</strong>,
@@ -918,7 +1050,7 @@
         <div class="wrap">
           <div class="section-head reveal">
             <p class="eyebrow">Formação e credenciais</p>
-            <h2 class="section-title">Base formal</h2>
+            <h2 class="section-title">Formação e certificações</h2>
           </div>
 
           <div class="creds">
